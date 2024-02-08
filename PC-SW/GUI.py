@@ -43,3 +43,5 @@ def GUI():
             print("manuel")
 
     window.close()
+
+GUI()

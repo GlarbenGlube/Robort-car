@@ -1,4 +1,4 @@
 #skal kunne følge en carierende væg og dreje så bilen kan følge væggen
-from robotbil.Hardware import ReadSensor as SA
+from Hardware import ReadSensor as SA
 def follow():
     pass

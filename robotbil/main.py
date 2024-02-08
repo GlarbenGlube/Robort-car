@@ -1,24 +1,25 @@
-from Hardware import motorStyring as motor
+from Hardware import motorstyrring as motor
 from UserInterface import konsol as kons
-from UserInterface import kommandoer as komm
+from UserInterface.kommandoer import followWall, SUMO, reset, ManualOverride
 from Hardware import SensorAflæsning as SA
-
-
-def main_robotbil():
-    reset = False
-    program = kons.konsol()
-    if program == 1:
-        manuel()
-    elif program == 2:
-        followWall()
-    else:
-        SUMO()
-
-    print(program)
-    while reset != True:
-        pass
+import socket
+import Connection.UDP as UDP
 
 while True:
-    main_robotbil()
+    UDP.UDPConnect()
+    HOST = '0.0.0.0'
+    PORT = 5001
+    sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+    sock.bind((HOST, PORT))
+    print(f"Listening for UDP messages on {HOST}:{PORT}")
 
-SA.measureDistance()
+
+    # Function to simulate elevator movement
+
+
+    # Main loop
+    while True:
+        # Receiving and processing UDP messages
+        data, addr = sock.recvfrom(1024)
+        received_msg = data.decode('utf-8')  # Decode the received bytes to string
+        print(received_msg)

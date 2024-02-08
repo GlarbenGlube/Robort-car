@@ -3,7 +3,7 @@ import PySimpleGUI as sg
 sg.theme('DarkAmber')
 
 def GUI():
-    column_to_be_centered = [[sg.Button('Follow Wall', size=(12, 2), pad=(10, 50), font='Impact'),
+    layout = [[sg.Button('Follow Wall', size=(12, 2), pad=(10, 50), font='Impact'),
                              sg.Button('Push Object', size=(12, 2), pad=(10, 50), font='Impact'),
                              sg.Button('Manuel', size=(12, 2), pad=(10, 50), font='Impact')],
 
@@ -15,11 +15,11 @@ def GUI():
 
                               [sg.Button('Tilbage', size=(12, 2), pad=(10,10), font='Impact')]]
 
-    layout = [[sg.VPush()],
-              [sg.Push(), sg.Column(column_to_be_centered,element_justification='c'), sg.Push()],
+    centering = [[sg.VPush()],
+              [sg.Push(), sg.Column(layout,element_justification='c'), sg.Push()],
               [sg.VPush()]]
 
-    window = sg.Window('Window Title', layout, size=(700,500))
+    window = sg.Window('Window Title', centering, size=(700,500))
 
     while True:
         event, values = window.read()

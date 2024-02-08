@@ -1,6 +1,6 @@
 import PySimpleGUI as sg
 
-sg.theme('DarkAmber')
+sg.theme('DarkGrey15')
 
 def GUI():
     layout = [[sg.Button('Follow Wall', size=(12, 2), pad=(10, 50), font='Impact'),

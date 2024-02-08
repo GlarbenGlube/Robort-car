@@ -1,0 +1,31 @@
+
+
+
+                               |-- konsol
+                               |
+             |--- UI --------  |                     |-- følg væg
+             |                 |                     |
+             |                 |-- kommandoer -------|-- skub objekt
+             |                                       |
+             |                                       |-- manuel kontrol
+             |
+             |
+             |                |-- UDP ----------------- bluetooth
+Robotbil ----|--- connection -|
+             |                |-- remote
+             |
+             |
+             |                                       |-- farve?
+             |                |-- sensor aflæsning --|
+             |                |                      |-- afstand
+             |                |
+             |--- hardware  --|
+                              |                      |-- frem
+                              |                      |
+                              |-- motor styring -----|-- tilbage
+                                                     |
+                                                     |-- drej
+
+
+
+

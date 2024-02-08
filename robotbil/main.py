@@ -1,7 +1,7 @@
-from Hardware import motorstyrring as motor
-from UserInterface import konsol as kons
+import Hardware.motorstyrring as motor
+import UserInterface.konsol as kons
 from UserInterface.kommandoer import followWall, SUMO, reset, ManualOverride
-from Hardware import SensorAflæsning as SA
+from robotbil.Hardware import ReadSensor as SA
 import socket
 import Connection.UDP as UDP
 

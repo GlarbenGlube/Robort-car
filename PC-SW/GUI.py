@@ -1,6 +1,6 @@
 import PySimpleGUI as sg
 import Remote
-commands = {"Follow Wall":"wallfollow","Push Object": "boxpush", "Manual": "manual", "Frem": "forward", "Venstre": "left", "Stop": "stop", "Højre": "right", "Tilbage": "backwards"}
+commands = {"Follow Wall":"wallfollow","Push Object": "boxpush", "Manual": "manual", "Frem": "forwards", "Venstre": "venstre", "Stop": "stop", "Højre": "right", "Tilbage": "backwards"}
 sg.theme('DarkGrey15')
 
 def GUI():
@@ -26,14 +26,14 @@ def GUI():
 
     while True:
         event, values = window.read()
-        if event == (sg.WIN_CLOSED or 'Quit'):
+        if event == sg.WIN_CLOSED or event == 'Quit':
             break
         else:
             if event in commands:
-                print(commands[event])
                 Remote.UDPSend(commands[event])
             
 
     window.close()
+
 
 GUI()

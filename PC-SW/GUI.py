@@ -26,7 +26,7 @@ def GUI():
 
     while True:
         event, values = window.read()
-        if event == (sg.WIN_CLOSED or 'Quit'):
+        if event == sg.WIN_CLOSED or event == 'Quit':
             break
         else:
             if event in commands:

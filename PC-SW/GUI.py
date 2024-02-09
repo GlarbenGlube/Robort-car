@@ -36,5 +36,4 @@ def GUI():
     window.close()
 
 
-
 GUI()

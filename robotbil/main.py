@@ -9,6 +9,8 @@ functions_dict = {
     "forward": motor.forward,
     "stop": motor.stop,
     "backward": motor.back,
+    "right": motor.turnright,
+    "left": motor.turnleft,
 }
 
 motor.init()
@@ -30,5 +32,6 @@ while True:
         
         if received_msg in functions_dict:
             functions_dict[received_msg]()  # Call the function
+            print(received_msg)
         else:
             print("Function not found for input:", received_msg)

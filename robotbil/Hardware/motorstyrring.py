@@ -57,16 +57,16 @@ def onspotturnleft(grader):
     rightForward.value(0)
     leftBack.value(0)
 
-def turnright(grader):
+def turnright():
+    rightBack.value(1)
+    rightForward.value(0)
+    leftBack.value(1)
     leftBack.value(0)
-    leftForward.value(1)
-    sleep(grader)
-    leftForward.value(0)
 
-def turnleft(grader):
+
+def turnleft():
     rightBack.value(0)
     rightForward.value(1)
-    sleep(grader)
-    rightForward.value(0)
-
+    leftBack.value(0)
+    leftBack.value(1)
 

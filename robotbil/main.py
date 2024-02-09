@@ -6,9 +6,9 @@ import socket
 import Connection.UDP as UDP
 
 functions_dict = {
-    "forward": motor.fremad,
+    "forward": motor.forward,
     "stop": motor.stop,
-    "backward": motor.tilbage,
+    "backward": motor.back,
 }
 
 motor.init()

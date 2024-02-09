@@ -32,6 +32,6 @@ while True:
         
         if received_msg in functions_dict:
             functions_dict[received_msg]()  # Call the function
-            print(received_msg)
+            
         else:
             print("Function not found for input:", received_msg)

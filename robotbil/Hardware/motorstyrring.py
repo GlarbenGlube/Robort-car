@@ -10,8 +10,10 @@ leftForward = Pin(2, Pin.OUT)
 leftBack = Pin(3, Pin.OUT)
 
 def init():
-    frequency = 6000
-    dutycycle = 50
+    led = Pin(25, Pin.OUT)
+    led.toggle()
+    frequency = 10000
+    dutycycle = .7
 
     leftpwm = PWM(Pin(0))
     leftpwm.freq(frequency)
@@ -60,13 +62,13 @@ def onspotturnleft(grader):
 def turnright():
     rightBack.value(1)
     rightForward.value(0)
-    leftBack.value(1)
     leftBack.value(0)
+    leftForward.value(1)
 
 
 def turnleft():
     rightBack.value(0)
     rightForward.value(1)
-    leftBack.value(0)
     leftBack.value(1)
+    leftForward.value(0)
 

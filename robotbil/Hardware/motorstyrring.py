@@ -2,12 +2,12 @@ from machine import Pin, PWM
 from time import sleep
 
 #højre motor
-højreFrem = Pin(5, Pin.OUT)
-højreTilbage = Pin(4, Pin.OUT)
+rightForward = Pin(5, Pin.OUT)
+rightBack = Pin(4, Pin.OUT)
 
 #venstre motor
-venstreFrem = Pin(2, Pin.OUT)
-venstreTilbage = Pin(3, Pin.OUT)
+leftForward = Pin(2, Pin.OUT)
+leftBack = Pin(3, Pin.OUT)
 
 def init():
     frequency = 6000
@@ -21,52 +21,52 @@ def init():
     rightpwm.freq(frequency)
     rightpwm.duty_u16(int(65536 * dutycycle))
 
-def fremad():
-    venstreFrem.value(1)
-    højreFrem.value(1)
-    venstreTilbage.value(0)
-    højreTilbage.value(0)
+def forward():
+    leftForward.value(1)
+    rightForward.value(1)
+    leftBack.value(0)
+    rightBack.value(0)
 
-def tilbage():
-    venstreFrem.value(0)
-    højreFrem.value(0)
-    venstreTilbage.value(1)
-    højreTilbage.value(1)
+def back():
+    leftForward.value(0)
+    rightForward.value(0)
+    leftBack.value(1)
+    rightBack.value(1)
 
 def stop():
-    venstreFrem.value(0)
-    højreFrem.value(0)
-    venstreTilbage.value(0)
-    højreTilbage.value(0)
+    leftForward.value(0)
+    rightForward.value(0)
+    leftBack.value(0)
+    rightBack.value(0)
 
-def drejstedethøjre(grader):
-    højreFrem.value(0)
-    venstreTilbage.value(0)
-    venstreFrem.value(1)
-    højreTilbage.value(1)
+def onspotturnright(grader):
+    rightForward.value(0)
+    leftBack.value(0)
+    leftForward.value(1)
+    rightBack.value(1)
     sleep(grader)
-    venstreFrem.value(0)
-    højreTilbage.value(0)
+    leftForward.value(0)
+    rightBack.value(0)
 
-def drejstedetvenstre(grader):
-    venstreFrem.value(0)
-    højreTilbage.value(0)
-    højreFrem.value(1)
-    venstreTilbage.value(1)
+def onspotturnleft(grader):
+    leftForward.value(0)
+    rightBack.value(0)
+    rightForward.value(1)
+    leftBack.value(1)
     sleep(grader)
-    højreFrem.value(0)
-    venstreTilbage.value(0)
+    rightForward.value(0)
+    leftBack.value(0)
 
-def drejhøjre(grader):
-    venstreTilbage.value(0)
-    venstreFrem.value(1)
+def turnright(grader):
+    leftBack.value(0)
+    leftForward.value(1)
     sleep(grader)
-    venstreFrem.value(0)
+    leftForward.value(0)
 
-def drejvenstre(grader):
-    højreTilbage.value(0)
-    højreFrem.value(1)
+def turnleft(grader):
+    rightBack.value(0)
+    rightForward.value(1)
     sleep(grader)
-    højreFrem.value(0)
+    rightForward.value(0)
 
 

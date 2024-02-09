@@ -21,6 +21,18 @@ def init():
     rightpwm.freq(frequency)
     rightpwm.duty_u16(int(65536 * dutycycle))
 
+def fremad():
+    venstreFrem.value(1)
+    højreFrem.value(1)
+    venstreTilbage.value(0)
+    højreTilbage.value(0)
+
+def tilbage():
+    venstreFrem.value(0)
+    højreFrem.value(0)
+    venstreTilbage.value(1)
+    højreTilbage.value(1)
+
 def stop():
     venstreFrem.value(0)
     højreFrem.value(0)

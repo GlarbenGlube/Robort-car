@@ -8,6 +8,7 @@ import Connection.UDP as UDP
 functions_dict = {
     "forward": motor.fremad,
     "stop": motor.stop,
+    "backward": motor.tilbage,
 }
 
 motor.init()

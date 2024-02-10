@@ -1,6 +1,9 @@
 import PySimpleGUI as sg
 import Remote
-commands = {"Follow Wall":"wallfollow","Push Object": "boxpush", "Manual": "manual",
+from Controller import readController as controller
+
+commands = {"Follow Wall":"wallfollow","Push Object": "boxpush", 
+            "controlOn": "controller", "controlOff": "manual",
             "forwardGo": "forward", "forwardStop": "stop",
             "leftGo": "left", "leftStop": "stop",
             "Stop": "stop",
@@ -12,7 +15,7 @@ sg.theme('DarkGrey15')
 def GUI():
     layout = [[sg.Button('Follow Wall', size=(12, 2), pad=(10, 50), font='Impact'),
                sg.Button('Push Object', size=(12, 2), pad=(10, 50), font='Impact'),
-               sg.Button('Manual', size=(12, 2), pad=(10, 50), font='Impact')],
+               sg.Button('Controller', size=(12, 2), pad=(10, 50), font='Impact', key= 'control')],
 
               [sg.Button('Frem', size=(12, 2), pad=(10, 10), font='Impact', key='forward')],
 
@@ -34,6 +37,7 @@ def GUI():
     right = window['right']
     forward = window['forward']
     back = window['back']
+    control = window['control']
 
     left.bind('<ButtonPress>', "Go", propagate=False)
     left.bind('<ButtonRelease>', "Stop", propagate=False)
@@ -47,6 +51,8 @@ def GUI():
     back.bind('<ButtonPress>', "Go", propagate=False)
     back.bind('<ButtonRelease>', "Stop", propagate=False)
 
+    control.bind('<ButtonPress>', "On", propagate=False)
+    control.bind('<ButtonRelease>', "Off", propagate=False)
     while True:
         event, values = window.read()
         if event == sg.WIN_CLOSED or event == 'Quit':
@@ -55,6 +61,8 @@ def GUI():
             if event in commands:
                 print(commands[event])
                 Remote.UDPSend(commands[event])
+                if event == 'controlOn':
+                    controller()
     window.close()
 
 GUI()

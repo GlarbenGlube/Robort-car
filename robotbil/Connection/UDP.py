@@ -1,8 +1,6 @@
-from machine import Pin, PWM, idle
-from time import sleep
+from machine import Pin, idle, reset
 import time
 import network
-import socket
 
 def UDPConnect():
 # Initialize network
@@ -10,6 +8,7 @@ def UDPConnect():
     wlan.active(True)
     wlan.connect('ITEK 2nd', '2nd_Semester_F24v')
     wlandelay = time.ticks_ms() + 10000
+    led = Pin("LED", Pin.OUT)
 
     # Check Wi-Fi connection
     while time.ticks_ms() < wlandelay:
@@ -19,9 +18,11 @@ def UDPConnect():
         idle()
 
     if wlan.status() != 3:
-        raise RuntimeError('Wi-Fi connection failed')
-        machine.reset()
+        led.toggle()
+        print('Wi-Fi connection failed')
+        reset()
     else:
+        led.toggle()
         print('Connected')
         status = wlan.ifconfig()
         print('ip = ' + status[0])

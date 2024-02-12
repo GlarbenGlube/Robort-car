@@ -53,13 +53,14 @@ def GUI():
 
     control.bind('<ButtonPress>', "On", propagate=False)
     control.bind('<ButtonRelease>', "Off", propagate=False)
+
     while True:
         event, values = window.read()
         if event == sg.WIN_CLOSED or event == 'Quit':
             break
         else:
             if event in commands:
-                print(commands[event])
+                print(commands[event]) 
                 Remote.UDPSend(commands[event])
                 if event == 'controlOn':
                     controller()

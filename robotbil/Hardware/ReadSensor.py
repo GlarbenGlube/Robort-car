@@ -1,7 +1,7 @@
-"""from machine import Pin, PWM
-gy53 = Pin(19, Pin.IN)"""
 import time
+from machine import Pin
 
+gy53 = Pin(17,Pin.IN)
 
 def measureDistance():
     gy53 = True

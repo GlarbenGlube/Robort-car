@@ -13,7 +13,6 @@ functions_dict = {
     "left": motor.turnleft,
 }
 
-motor.init()
 receivermode = 0
 
 while True:

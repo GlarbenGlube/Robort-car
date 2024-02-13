@@ -1,13 +1,13 @@
 from machine import Pin, PWM
 from time import sleep
 
-#højre motor
-rightForward = Pin(5, Pin.OUT)
-rightBack = Pin(4, Pin.OUT)
-
 #venstre motor
-leftForward = Pin(2, Pin.OUT)
-leftBack = Pin(3, Pin.OUT)
+leftForward = Pin(5, Pin.OUT)
+leftBack = Pin(4, Pin.OUT)
+
+#højre motor
+rightForward = Pin(2, Pin.OUT)
+rightBack = Pin(3, Pin.OUT)
 
 def init():
     led = Pin(25, Pin.OUT)

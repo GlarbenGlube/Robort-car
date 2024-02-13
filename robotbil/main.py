@@ -1,6 +1,5 @@
 import Hardware.motorstyrring as motor
-# import UserInterface.konsol as kons
-# from UserInterface.kommandoer import followWall, SUMO, reset, ManualOverride
+from kommandoer import followWall, SUMO, reset, ManualOverride
 # from Hardware import ReadSensor as SA
 import socket
 import Connection.UDP as UDP
@@ -11,6 +10,7 @@ functions_dict = {
     "backward": motor.back,
     "right": motor.turnright,
     "left": motor.turnleft,
+    "wallfollow": followWall,
 }
 
 receivermode = 0

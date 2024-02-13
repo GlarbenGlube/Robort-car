@@ -13,8 +13,8 @@ def init():
     led = Pin(25, Pin.OUT)
     led.toggle()
     frequency = 10000
-    dutycycleR = .75
-    dutycycleL = .7
+    dutycycleR = .7
+    dutycycleL = .71
 
     leftpwm = PWM(Pin(0))
     leftpwm.freq(frequency)

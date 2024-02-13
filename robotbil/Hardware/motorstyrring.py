@@ -2,12 +2,12 @@ from machine import Pin, PWM
 from time import sleep
 
 #venstre motor
-leftForward = Pin(5, Pin.OUT)
-leftBack = Pin(4, Pin.OUT)
+leftForward = Pin(3, Pin.OUT)
+leftBack = Pin(2, Pin.OUT)
 
 #højre motor
-rightForward = Pin(2, Pin.OUT)
-rightBack = Pin(3, Pin.OUT)
+rightForward = Pin(4, Pin.OUT)
+rightBack = Pin(5, Pin.OUT)
 
 def init():
     led = Pin(25, Pin.OUT)
@@ -41,34 +41,34 @@ def stop():
     leftBack.value(0)
     rightBack.value(0)
 
-def onspotturnright(grader):
-    rightForward.value(0)
-    leftBack.value(0)
-    leftForward.value(1)
-    rightBack.value(1)
-    sleep(grader)
-    leftForward.value(0)
-    rightBack.value(0)
+# def onspotturnright(grader):
+#     rightForward.value(0)
+#     leftBack.value(0)
+#     leftForward.value(1)
+#     rightBack.value(1)
+#     sleep(grader)
+#     leftForward.value(0)
+#     rightBack.value(0)
 
-def onspotturnleft(grader):
-    leftForward.value(0)
+# def onspotturnleft(grader):
+#     leftForward.value(0)
+#     rightBack.value(0)
+#     rightForward.value(1)
+#     leftBack.value(1)
+#     sleep(grader)
+#     rightForward.value(0)
+#     leftBack.value(0)
+
+def turnright():
     rightBack.value(0)
     rightForward.value(1)
     leftBack.value(1)
-    sleep(grader)
-    rightForward.value(0)
-    leftBack.value(0)
-
-def turnright():
-    rightBack.value(1)
-    rightForward.value(0)
-    leftBack.value(0)
-    leftForward.value(1)
+    leftForward.value(0)
 
 
 def turnleft():
-    rightBack.value(0)
-    rightForward.value(1)
-    leftBack.value(1)
-    leftForward.value(0)
+    rightBack.value(1)
+    rightForward.value(0)
+    leftBack.value(0)
+    leftForward.value(1)
 

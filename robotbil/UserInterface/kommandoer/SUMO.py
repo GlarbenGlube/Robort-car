@@ -7,7 +7,7 @@ def SUMO():
     while True:
         while SA.measureDistance > 100:
             ms.onspotturnleft()
-        if refleks == gulv:
+        while refleks == gulv:
             ms.forward()
         ms.stop()
         ms.onspotturnleft()

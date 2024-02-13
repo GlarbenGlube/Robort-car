@@ -13,15 +13,16 @@ def init():
     led = Pin(25, Pin.OUT)
     led.toggle()
     frequency = 10000
-    dutycycle = .7
+    dutycycleR = .75
+    dutycycleL = .7
 
     leftpwm = PWM(Pin(0))
     leftpwm.freq(frequency)
-    leftpwm.duty_u16(int(65536 * dutycycle))
+    leftpwm.duty_u16(int(65536 * dutycycleL))
 
     rightpwm = PWM(Pin(1))
     rightpwm.freq(frequency)
-    rightpwm.duty_u16(int(65536 * dutycycle))
+    rightpwm.duty_u16(int(65536 * dutycycleR))
 
 def forward():
     rightForward.value(1)

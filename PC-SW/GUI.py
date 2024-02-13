@@ -2,6 +2,11 @@ import PySimpleGUI as sg
 import Remote
 from Controller import readController as controller
 
+sg.theme('DarkGrey15')
+
+batteryLevel = 50 #placeholder
+currentPower = 12.6 #placeholder
+
 commands = {"Follow Wall":"wallfollow","Push Object": "boxpush", 
             "controlOn": "controller", "controlOff": "manual",
             "forwardGo": "forward", "forwardStop": "stop",
@@ -10,7 +15,11 @@ commands = {"Follow Wall":"wallfollow","Push Object": "boxpush",
             "rightGo": "right", "rightStop": "stop",
             "backGo": "backward", "backStop": "stop",
             }
-sg.theme('DarkGrey15')
+
+def UpdateBatteryLevel(window, battery_level, current_power):
+    window['BATTERY_LEVEL'].update(f'Battery Level: {battery_level}%')
+    window['CURRENT_POWER'].update(f'Current Power: {current_power} volts')
+    window['PROGRESS_BAR'].update(battery_level)
 
 def GUI():
     layout = [[sg.Button('Follow Wall', size=(12, 2), pad=(10, 50), font='Impact'),
@@ -25,36 +34,43 @@ def GUI():
 
               [sg.Button('Tilbage', size=(12, 2), pad=(10, 10), font='Impact', key='back')],
 
-              [sg.Button('Quit', size=(12, 2), pad=(10, 50), font='Impact')]]
+              [sg.Button('Quit', size=(12, 2), pad=(10, 10), font='Impact')],
+
+              [sg.Text('Battery Level: ', key='BATTERY_LEVEL')],
+              [sg.Text('Current Power: ', key='CURRENT_POWER')],
+              [sg.ProgressBar(100, orientation='h', size=(20, 20), key='PROGRESS_BAR')]
+              ]
 
     centering = [[sg.VPush()],
                  [sg.Push(), sg.Column(layout, element_justification='c'), sg.Push()],
                  [sg.VPush()]]
 
-    window = sg.Window('Window Title', centering, size=(900, 600), finalize=True)
-    
+    window = sg.Window('Window Title', centering, size=(1100, 700), finalize=True)
+
     left = window['left']
     right = window['right']
     forward = window['forward']
     back = window['back']
     control = window['control']
 
-    left.bind('<ButtonPress>', "Go", propagate=False)
+    left.bind('<ButtonPress>', "Go", propagate=True)
     left.bind('<ButtonRelease>', "Stop", propagate=False)
 
-    right.bind('<ButtonPress>', "Go", propagate=False)
+    right.bind('<ButtonPress>', "Go", propagate=True)
     right.bind('<ButtonRelease>', "Stop", propagate=False)
     
-    forward.bind('<ButtonPress>', "Go", propagate=False)
+    forward.bind('<ButtonPress>', "Go", propagate=True)
     forward.bind('<ButtonRelease>', "Stop", propagate=False)
 
-    back.bind('<ButtonPress>', "Go", propagate=False)
+    back.bind('<ButtonPress>', "Go", propagate=True)
     back.bind('<ButtonRelease>', "Stop", propagate=False)
 
-    control.bind('<ButtonPress>', "On", propagate=False)
+    control.bind('<ButtonPress>', "On", propagate=True)
     control.bind('<ButtonRelease>', "Off", propagate=False)
 
+    #main lööp
     while True:
+        UpdateBatteryLevel(window, batteryLevel, currentPower)
         event, values = window.read()
         if event == sg.WIN_CLOSED or event == 'Quit':
             break
@@ -64,6 +80,9 @@ def GUI():
                 Remote.UDPSend(commands[event])
                 if event == 'controlOn':
                     controller()
+
     window.close()
+
+
 
 GUI()

@@ -2,12 +2,13 @@
 #skeletkode
 from Hardware import ReadSensor as RS
 from Hardware import motorstyrring as ms
+from Hardware import Poweroffbutton as pob
 from time import sleep
 def follow():
     side = input("what side is the wall on? left or right: ")
-    if side == left:
+    if side == "left":
         while True:
-            if #readin == stopsignal:
+            if pob.readbutton == "ON":
                 break
             elif RS.measureDistance() > 100:
                 ms.VariableLeft(RS.measureDistance()*0.5)
@@ -16,7 +17,7 @@ def follow():
                 ms.stop()
     else:
         while True:
-            if #readin == stopsignal:
+            if pob.readbutton == "ON":
                 break
             elif RS.measureDistance() > 100:
                 ms.VariableRight(RS.measureDistance()*0.5)

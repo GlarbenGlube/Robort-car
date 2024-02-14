@@ -1,4 +1,4 @@
-button = Pin(18, Pin.IN, Pin.PULL_DOWN)
+button = Pin(15, Pin.IN, Pin.PULL_DOWN)
 
 def readbutton():
         if button.value() == 1:

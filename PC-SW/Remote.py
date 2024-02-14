@@ -1,4 +1,5 @@
 import socket
+
 ip = '10.120.0.8'
 port = 5001
 
@@ -17,3 +18,16 @@ def send_coordinates(x, y):
 
     # Send the message
     sock.sendto(message, (ip , port))
+
+def UDPRecieve():
+    HOST = '0.0.0.0'
+    PORT = 5001
+    sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+    sock.settimeout(2)
+    sock.bind((HOST, PORT))
+    print(f"Listening for UDP messages on {HOST}:{PORT}")
+    try: data, addr = sock.recvfrom(1024)
+    except: 
+        print("no data recieved")
+        return
+    return data.decode('utf-8')

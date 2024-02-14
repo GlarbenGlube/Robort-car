@@ -4,8 +4,8 @@ from Controller import readController as controller
 
 sg.theme('DarkGrey15')
 
-batteryLevel = 50 #placeholder
-currentPower = 12.6 #placeholder
+currentPower = 0
+batteryLevel = currentPower/100*8.4
 
 commands = {"Follow Wall":"wallfollow","Push Object": "boxpush", 
             "controlOn": "controller", "controlOff": "manual",
@@ -14,6 +14,7 @@ commands = {"Follow Wall":"wallfollow","Push Object": "boxpush",
             "Stop": "stop",
             "rightGo": "right", "rightStop": "stop",
             "backGo": "backward", "backStop": "stop",
+            "Update Battery": "getbattery"
             }
 
 def UpdateBatteryLevel(window, battery_level, current_power):
@@ -34,7 +35,8 @@ def GUI():
 
               [sg.Button('Tilbage', size=(12, 2), pad=(10, 10), font='Impact', key='back')],
 
-              [sg.Button('Quit', size=(12, 2), pad=(10, 10), font='Impact')],
+              [sg.Button('Quit', size=(12, 2), pad=(10, 10), font='Impact'),
+               sg.Button('Update Battery', size=(12, 2), pad=(10, 50), font='Impact')],
 
               [sg.Text('Battery Level: ', key='BATTERY_LEVEL')],
               [sg.Text('Current Power: ', key='CURRENT_POWER')],
@@ -80,6 +82,9 @@ def GUI():
                 Remote.UDPSend(commands[event])
                 if event == 'controlOn':
                     controller()
+                elif event == 'Update Battery':
+                    print(1)
+                    sg.batteryLevel = Remote.UDPRecieve()
 
     window.close()
 

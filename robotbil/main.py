@@ -4,14 +4,14 @@ from Hardware import ReadSensor as SA
 import socket
 import Connection.UDP as UDP
 
-ip = 0
+ip = '10.120.0.86'
 port = 5001
 
 def UDPBattery():
+    battery = SA.measureBattery()
     # Open UDP socket
     sock = socket.socket(socket.AF_INET,socket.SOCK_DGRAM)
-    # Convert to utf-8 formatted bytestring
-    sock.sendto(bytes((SA.measureBattery(), "utf-8"), (ip , port)))
+    sock.sendto(bytes(battery, "utf-8"), (ip , port))
 
 receivermode = 0
 
@@ -49,7 +49,7 @@ while True:
 
         else:
             received_msg = data.decode('utf-8')  # Decode the received bytes to string
-            
+            print(received_msg)
             if received_msg in functions_dict:
                 functions_dict[received_msg]()  # Call the function
             else:

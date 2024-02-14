@@ -24,5 +24,5 @@ def measureQA():
 
 def measureBattery():
     battery = bat.read_u16()
-    batttery_voltage = battery * (3.3/65535)*3
-    return batttery_voltage
+    battery_voltage = battery * (3.3/65535)*3
+    return battery_voltage

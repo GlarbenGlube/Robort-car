@@ -17,12 +17,13 @@ def follow():
                 sleep(1)
                 ms.stop()
     else:"""
-    while True:
-        if pob.readbutton == "ON":
-            break
-        elif RS.measureDistance() > 100:
-            ms.VariableRight(RS.measureDistance()*0.5)
-            ms.forward()
-            sleep(1)
-            ms.stop()
+    while pob.readbutton != "ON":
+        while RS.measureDistance() > 100:
+            if pob.readbutton == "ON":
+                break
+            else:
+                ms.VariableRight(RS.measureDistance()*0.5)
+                ms.forward()
+                sleep(1)
+                ms.stop()
     pass

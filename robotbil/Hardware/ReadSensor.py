@@ -1,7 +1,8 @@
 import time
-from machine import Pin
+from machine import ADC, Pin
 
-gy53 = Pin(17,Pin.IN)
+gy53 = Pin(17, Pin.IN)
+QA = ADC(Pin(26))
 
 def measureDistance():
     gy53 = True
@@ -16,3 +17,6 @@ def measureDistance():
     TotalTime = endTime - startTime
     print(TotalTime/100)
     return TotalTime
+
+def measureQA():
+    return(QA.read_u16())

@@ -7,6 +7,14 @@ import Connection.UDP as UDP
 ip = 0
 port = 5001
 
+def UDPBattery():
+    # Open UDP socket
+    sock = socket.socket(socket.AF_INET,socket.SOCK_DGRAM)
+    # Convert to utf-8 formatted bytestring
+    sock.sendto(bytes((SA.measureBattery(), "utf-8"), (ip , port)))
+
+receivermode = 0
+
 functions_dict = {
     "forward": motor.forward,
     "stop": motor.stop,
@@ -16,14 +24,6 @@ functions_dict = {
     "wallfollow": followWall,
     "getbattery": UDPBattery,
 }
-
-def UDPBattery():
-    # Open UDP socket
-    sock = socket.socket(socket.AF_INET,socket.SOCK_DGRAM)
-    # Convert to utf-8 formatted bytestring
-    sock.sendto(bytes((SA.measureBattery(), "utf-8"), (ip , port)))
-
-receivermode = 0
 
 while True:
     UDP.UDPConnect()

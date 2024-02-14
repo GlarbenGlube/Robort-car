@@ -1,5 +1,5 @@
 import Hardware.motorstyrring as motor
-from kommandoer import followWall, SUMO, reset
+from kommandoer import followWall, SUMO
 # from Hardware import ReadSensor as SA
 import socket
 import Connection.UDP as UDP

@@ -11,11 +11,11 @@ def SUMO():
             if pob.button() == "ON":
                 break
             else:
-                ms.onspotturnleft()
+                ms.turnleft()
         while SA.measureQA() == gulv:
             if pob.button() == "ON":
                 break
             else:
                 ms.forward()
         ms.stop()
-        ms.onspotturnleft()
+        ms.turnleft()

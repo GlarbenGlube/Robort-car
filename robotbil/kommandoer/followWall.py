@@ -10,7 +10,7 @@ def follow():
             if #readin == stopsignal:
                 break
             elif RS.measureDistance() > 100:
-                ms.turnleft(RS.measureDistance()*0.5)
+                ms.VariableLeft(RS.measureDistance()*0.5)
                 ms.forward()
                 sleep(1)
                 ms.stop()
@@ -19,7 +19,7 @@ def follow():
             if #readin == stopsignal:
                 break
             elif RS.measureDistance() > 100:
-                ms.turnright(RS.measureDistance()*0.5)
+                ms.VariableRight(RS.measureDistance()*0.5)
                 ms.forward()
                 sleep(1)
                 ms.stop()

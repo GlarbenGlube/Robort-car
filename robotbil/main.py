@@ -1,8 +1,11 @@
 import Hardware.motorstyrring as motor
-from kommandoer import followWall, SUMO
-# from Hardware import ReadSensor as SA
+from kommandoer import followWall, SUMO, rese
+from Hardware import ReadSensor as SA
 import socket
 import Connection.UDP as UDP
+
+ip = 0
+port = 5001
 
 functions_dict = {
     "forward": motor.forward,
@@ -11,7 +14,14 @@ functions_dict = {
     "right": motor.turnright,
     "left": motor.turnleft,
     "wallfollow": followWall,
+    "getbattery": UDPBattery,
 }
+
+def UDPBattery():
+    # Open UDP socket
+    sock = socket.socket(socket.AF_INET,socket.SOCK_DGRAM)
+    # Convert to utf-8 formatted bytestring
+    sock.sendto(bytes((SA.measureBattery(), "utf-8"), (ip , port)))
 
 receivermode = 0
 

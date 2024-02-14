@@ -1,9 +1,10 @@
 #skal kunne følge en varierende væg og dreje så bilen kan følge væggen
 #skeletkode
-import robotbil.Hardware.ReadSensor as RS
-import robotbil.Hardware.motorstyrring as ms
-import robotbil.Hardware.Poweroffbutton as pob
+from Hardware import ReadSensor as RS
+from Hardware import motorstyrring as ms
+from Hardware import Poweroffbutton as pob
 from time import sleep
+
 def follow():
     #side = input("what side is the wall on? left or right: ")
     """if side == "left":

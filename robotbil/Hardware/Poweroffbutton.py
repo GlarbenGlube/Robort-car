@@ -1,3 +1,4 @@
+from machine import Pin
 button = Pin(15, Pin.IN, Pin.PULL_DOWN)
 
 def readbutton():

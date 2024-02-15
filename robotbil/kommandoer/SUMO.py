@@ -6,7 +6,7 @@ from Hardware import Poweroffbutton as pob
 from time import sleep
 def SUMO():
     while pob.button() != "ON":
-        while SA.measureDistance > 100:
+        while SA.measureDistance() > 100:
             if pob.button() == "ON":
                 break
             else:

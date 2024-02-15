@@ -19,7 +19,7 @@ def measureDistance():
     print(TotalTime/100)
     return TotalTime
 
-def measureQA():
+def measureReflection():
     return(QA.read_u16())
 
 def measureBattery():

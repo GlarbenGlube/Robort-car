@@ -3,15 +3,21 @@ from kommandoer import followWall, SUMO
 from Hardware import ReadSensor as SA
 import socket
 import Connection.UDP as UDP
+from time import sleep
+import gc
 
 ip = '10.120.0.86'
 port = 5001
 
 def UDPBattery():
-    battery = SA.measureBattery()
+    battery = str(SA.measureBattery())
     # Open UDP socket
+    sleep(1)
     sock = socket.socket(socket.AF_INET,socket.SOCK_DGRAM)
-    sock.sendto(bytes(battery, "utf-8"), (ip , port))
+    battery.encode('utf-8')
+    sock.sendto(battery, (ip , port))
+    sock.close()
+    gc.collect()
 
 receivermode = 0
 

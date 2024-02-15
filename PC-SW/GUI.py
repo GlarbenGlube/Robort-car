@@ -1,11 +1,9 @@
 import PySimpleGUI as sg
 import Remote
 from Controller import readController as controller
+from time import sleep
 
 sg.theme('DarkGrey15')
-
-currentPower = 0
-batteryLevel = currentPower/100*8.4
 
 commands = {"Follow Wall":"wallfollow","Push Object": "boxpush", 
             "controlOn": "controller", "controlOff": "manual",
@@ -72,7 +70,6 @@ def GUI():
 
     #main lööp
     while True:
-        UpdateBatteryLevel(window, batteryLevel, currentPower)
         event, values = window.read()
         if event == sg.WIN_CLOSED or event == 'Quit':
             break
@@ -83,11 +80,10 @@ def GUI():
                 if event == 'controlOn':
                     controller()
                 elif event == 'Update Battery':
-                    print(1)
-                    sg.batteryLevel = Remote.UDPRecieve()
-
+                    currentPower = Remote.UDPRecieve()
+                    batteryLevel = round(float(currentPower)/8.4*100+0.4, 2)
+        UpdateBatteryLevel(window, batteryLevel, currentPower)
+    
     window.close()
-
-
 
 GUI()

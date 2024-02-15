@@ -1,21 +1,21 @@
 #skal kunne følge en varierende væg og dreje så bilen kan følge væggen
 #skeletkode
-from Hardware import ReadSensor as SA
-from Hardware import motorstyrring as ms
-from Hardware import Poweroffbutton as pob
+from Hardware import ReadSensor as S
+from Hardware import motorstyrring as M
+from Hardware import Poweroffbutton as B
 from time import sleep
 def SUMO():
     gulv = 0
-    while pob.button() != "ON":
-        while SA.measureDistance > 100:
-            if pob.button() == "ON":
+    while B.button() != "ON":
+        while S.measureDistance > 100:
+            if B.button() == "ON":
                 break
             else:
-                ms.turnleft()
-        while SA.measureQA() == gulv:
-            if pob.button() == "ON":
+                M.turnleft()
+        while S.measureQA() == gulv:
+            if B.button() == "ON":
                 break
             else:
-                ms.forward()
-        ms.stop()
-        ms.turnleft()
+                M.forward()
+        M.stop()
+        M.turnleft()

@@ -51,7 +51,7 @@ def VariableRight(speed):
         rightBack.value(0)
         rightForward.value(1)
     UpdatePWM()
->
+    
 def back():
     rightForward.value(0)
     leftForward.value(0)

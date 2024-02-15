@@ -12,10 +12,11 @@ def SUMO():
             if B.button() == "ON":
                 break
             else:
-                M.turnleft()
+                M.VariableLeft(100)
         while S.measureQA() <= reflectionThreshold:
             if B.button() == "ON":
                 break
             else:
                 M.forward()
         M.stop()
+        M.turnleft()

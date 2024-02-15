@@ -18,10 +18,7 @@ def follow():
                 ms.stop()
     else:"""
     while pob.readbutton != "ON":
-        while RS.measureDistance() > 100:
-            if pob.readbutton == "ON":
-                break
-            else:
+        while RS.measureDistance() > 100 and pob.readbutton != "ON":
                 ms.VariableRight(RS.measureDistance()*0.5)
                 ms.forward()
                 sleep(1)

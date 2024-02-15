@@ -7,9 +7,9 @@ def cbt():
         if S.measureReflection() <= 40000:
             M.forward()
         else:
-            M.backward()
+            M.back()
             sleep(1)
             M.stop()
-            M.turnleft()
+            M.turnright()
             sleep(0.5)
             M.stop()

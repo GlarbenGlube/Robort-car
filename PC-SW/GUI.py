@@ -24,8 +24,8 @@ def UpdateBatteryLevel(window, battery_level, current_power):
 def GUI():
     layout = [[sg.Button('Follow Wall', size=(12, 2), pad=(10, 50), font='Impact'),
                sg.Button('Push Object', size=(12, 2), pad=(10, 50), font='Impact'),
-               sg.Button('Controller', size=(12, 2), pad=(10, 50), font='Impact', key= 'control')],
-               sg.Button('Edging', size=(12, 2), pad=(10, 50), font='Impact'),
+               sg.Button('Controller', size=(12, 2), pad=(10, 50), font='Impact', key= 'control'),
+               sg.Button('Edging', size=(12, 2), pad=(10, 50), font='Impact')],
 
               [sg.Button('Frem', size=(12, 2), pad=(10, 10), font='Impact', key='forward')],
 

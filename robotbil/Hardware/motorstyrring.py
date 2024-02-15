@@ -14,7 +14,7 @@ leftBack = Pin(5, Pin.OUT)
 
 led = Pin(25, Pin.OUT)
 led.toggle()
-frequency = 10000
+frequency = 5000
 dutycycleR = .7
 dutycycleL = .706
 

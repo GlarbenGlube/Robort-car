@@ -5,7 +5,6 @@ from Hardware import motorstyrring as ms
 from Hardware import Poweroffbutton as pob
 from time import sleep
 def SUMO():
-    gulv = 0
     while pob.button() != "ON":
         while SA.measureDistance > 100:
             if pob.button() == "ON":
@@ -18,4 +17,3 @@ def SUMO():
             else:
                 ms.forward()
         ms.stop()
-        ms.turnleft()

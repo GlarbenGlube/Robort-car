@@ -38,6 +38,7 @@ while True:
     sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
     sock.bind((HOST, PORT))
     print(f"Listening for UDP messages on {HOST}:{PORT}")
+    motor.UpdatePWM()
     # Main loop
     while True:
         print("Mode: ", receivermode)

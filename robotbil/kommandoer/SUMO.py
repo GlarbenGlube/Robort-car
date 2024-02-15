@@ -19,4 +19,3 @@ def SUMO():
             else:
                 M.forward()
         M.stop()
-        M.turnleft()

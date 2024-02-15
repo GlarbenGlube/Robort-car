@@ -12,7 +12,7 @@ def SUMO():
                 break
             else:
                 ms.turnleft()
-        while SA.measureQA() == gulv:
+        while SA.measureQA() < 60000:
             if pob.button() == "ON":
                 break
             else:

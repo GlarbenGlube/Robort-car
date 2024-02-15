@@ -4,12 +4,12 @@ from Hardware import ReadSensor as S
 from Hardware import motorstyrring as M
 from Hardware import Poweroffbutton as B
 from time import sleep
-reflectionThreshold = 56000 #placeholder
+reflectionThreshold = 40000
 
 def SUMO():
     while B.button() != "ON":
         dutycycleL = 100
-        UpdatePWM()
+        M.UpdatePWM()
         while S.measureDistance > 100:
             if B.button() == "ON":
                 break
@@ -18,7 +18,7 @@ def SUMO():
                 M.turnleft()
                 sleep(0.5)
         dutycycleL = 200
-        UpdatePWM()
+        M.UpdatePWM()
         while S.measureQA() <= reflectionThreshold:
             if B.button() == "ON":
                 break

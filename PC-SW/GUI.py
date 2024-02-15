@@ -82,7 +82,7 @@ def GUI():
                 elif event == 'Update Battery':
                     currentPower = Remote.UDPRecieve()
                     batteryLevel = round(float(currentPower)/8.4*100+0.4, 2)
-        UpdateBatteryLevel(window, batteryLevel, currentPower)
+                    UpdateBatteryLevel(window, batteryLevel, currentPower)
     
     window.close()
 

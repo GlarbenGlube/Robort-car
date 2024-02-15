@@ -1,7 +1,7 @@
 import time
-from machine import ADC, Pin
+from machine import ADC, Pin, time_pulse_us
 
-gy = Pin(17, Pin.IN, Pin.PULL_DOWN)
+gy = Pin(17, Pin.IN,)
 QA = ADC(Pin(26))
 bat = ADC(Pin(27))
 
@@ -19,6 +19,11 @@ def measureDistance():
     print(TotalTime/100)
     return TotalTime
 
+def altMeasureDistance():
+    while gy.value == True:
+        pass
+    pulsetime = time_pulse_us(17, 1)
+    return pulsetime/100
 def measureReflection():
     return(QA.read_u16())
 
@@ -27,4 +32,4 @@ def measureBattery():
     battery_voltage = battery * (3.3/65535)*3
     return battery_voltage
 
-print(measureDistance())
+print(altMeasureDistance())

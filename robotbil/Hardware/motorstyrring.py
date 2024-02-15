@@ -1,5 +1,8 @@
 from machine import Pin, PWM
 from time import sleep
+# PWM pins for controlling each motor
+leftpwm = PWM(Pin(0))
+rightpwm = PWM(Pin(1))
 
 #venstre motor
 rightForward = Pin(3, Pin.OUT)
@@ -15,8 +18,6 @@ frequency = 10000
 dutycycleR = .7
 dutycycleL = .706
 
-leftpwm = PWM(Pin(0))
-rightpwm = PWM(Pin(1))
 
 def UpdatePWM():
     leftpwm.freq(frequency)

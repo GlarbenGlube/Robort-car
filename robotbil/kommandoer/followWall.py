@@ -1,5 +1,7 @@
 #skal kunne følge en varierende væg og dreje så bilen kan følge væggen
 #skeletkode
+#frontalvæg
+#væg der forsvinder i siden
 from Hardware import ReadSensor as RS
 from Hardware import motorstyrring as ms
 from Hardware import Poweroffbutton as pob

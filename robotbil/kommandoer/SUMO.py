@@ -21,7 +21,7 @@ def SUMO():
             if i == 20:
                 while S.measureQA() <= reflectionThreshold or o > 5:
                     o += 1
-                    forward()
+                    M.forward()
 
         M.UpdatePWM(None, 1)
         

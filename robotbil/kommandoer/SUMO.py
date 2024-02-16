@@ -10,7 +10,7 @@ def SUMO():
     i = 0
 
     while B.button() != "ON":
-        
+        M.stop()
         dutycycleR = 0.5
         M.UpdatePWM(None, dutycycleR)
         o = 0
@@ -19,9 +19,11 @@ def SUMO():
             M.turnright()
             sleep(0.5)
             if i == 20:
+                M.stop()
                 while S.measureQA() <= reflectionThreshold or o > 5:
                     o += 1
                     forward()
+                    sleep(0.5)
 
         M.UpdatePWM(None, 1)
         

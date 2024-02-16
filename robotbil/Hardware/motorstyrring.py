@@ -18,12 +18,14 @@ frequency = 5000
 dutycycleR = .7
 dutycycleL = .706
 
-
-def UpdatePWM():
-    leftpwm.freq(frequency)
-    leftpwm.duty_u16(int(65536 * dutycycleL))
-    rightpwm.freq(frequency)
-    rightpwm.duty_u16(int(65536 * dutycycleR))
+def UpdatePWM(freq=int(),dutyR=float(),dutyL=float()):
+    if dutyR != None:
+        rightpwm.duty_u16(int(65536 * dutyR))
+    if dutyL != None:
+        leftpwm.duty_u16(int(65536 * dutyL))
+    if freq != None():
+        leftpwm.freq(freq)
+        rightpwm.freq(freq)
 
 def forward():
     rightForward.value(1)
@@ -78,3 +80,4 @@ def turnleft():
     rightBack.value(0)
     rightForward.value(1)
 
+UpdatePWM(frequency,dutycycleR,dutycycleL)

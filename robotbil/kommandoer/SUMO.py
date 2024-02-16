@@ -8,21 +8,19 @@ reflectionThreshold = 40000
 
 def SUMO():
     while B.button() != "ON":
+        
         dutycycleL = 100
         M.UpdatePWM()
-        while S.measureDistance > 100:
-            if B.button() == "ON":
-                break
-            else:
-
-                M.turnleft()
-                sleep(0.5)
+        
+        while S.measureDistance > 100 and B.button() != "ON":
+            M.turnleft()
+            sleep(0.5)
+        
         dutycycleL = 200
         M.UpdatePWM()
-        while S.measureQA() <= reflectionThreshold:
-            if B.button() == "ON":
-                break
-            else:
-                M.forward()
+        
+        while S.measureQA() <= reflectionThreshold and B.button() != "ON":
+            M.forward()
+        
         M.stop()
         M.turnleft()

@@ -83,7 +83,7 @@ def GUI():
                     controller()
                 elif event == 'Update Battery':
                     currentPower = Remote.UDPRecieve()
-                    try: batteryLevel = round(float(currentPower)/8.4*100+0.4, 2)
+                    try: batteryLevel = round(float(currentPower)/8.4*100, 2)
                     except: pass
                     UpdateBatteryLevel(window, batteryLevel, currentPower)
     

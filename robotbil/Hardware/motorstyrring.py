@@ -1,29 +1,27 @@
 from machine import Pin, PWM
-from time import sleep
+
 # PWM pins for controlling each motor
 leftpwm = PWM(Pin(0))
 rightpwm = PWM(Pin(1))
 
-#venstre motor
+# Left motor pins
 rightForward = Pin(3, Pin.OUT)
 rightBack = Pin(2, Pin.OUT)
 
-#højre motor
+# Right motor pins
 leftForward = Pin(4, Pin.OUT)
 leftBack = Pin(5, Pin.OUT)
 
-led = Pin(25, Pin.OUT)
-led.toggle()
 frequency = 5000
 dutycycleR = .7
 dutycycleL = .706
 
-def UpdatePWM(freq=int(),dutyR=float(),dutyL=float()):
+def UpdatePWM(freq=int(), dutyL=float(), dutyR=float()):
     if dutyR != None:
         rightpwm.duty_u16(int(65536 * dutyR))
     if dutyL != None:
         leftpwm.duty_u16(int(65536 * dutyL))
-    if freq != None():
+    if freq != None:
         leftpwm.freq(freq)
         rightpwm.freq(freq)
 
@@ -80,4 +78,4 @@ def turnleft():
     rightBack.value(0)
     rightForward.value(1)
 
-UpdatePWM(frequency,dutycycleR,dutycycleL)
+

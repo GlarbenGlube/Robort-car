@@ -43,9 +43,6 @@ def followwall():
 
         # If the measured distance is greater than 100
         if dis > 100:
-            # Measures the distance again
-            dis = RS.measureDistance()
-
             # If the distance is greater than 100 and less than 50
             if dis > 100 and dis < 50:
                 # Adjusts the left motor speed based on distance and moves forward
@@ -60,8 +57,6 @@ def followwall():
                 ms.stop()
         # If the measured distance is less than 100
         else:
-            # Measures the distance again
-            dis = RS.measureDistance()
 
             # If the distance is less than 100 and greater than 150
             if dis < 100 and dis > 150:

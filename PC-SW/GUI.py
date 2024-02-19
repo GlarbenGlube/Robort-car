@@ -6,6 +6,7 @@ from time import sleep
 sg.theme('DarkGrey15')  # setting the theme for GUI
 
 # Dictionary mapping GUI button texts to corresponding commands
+# in other words, it translates the button text into a command the program can execute
 commands = {"Follow Wall":"wallfollow","Push Object": "boxpush", 
             "controlOn": "controller", "controlOff": "manual",
             "forwardGo": "forward", "forwardStop": "stop",
@@ -17,7 +18,7 @@ commands = {"Follow Wall":"wallfollow","Push Object": "boxpush",
             "Edging": "edging",
             }
 
-# Dictionary mapping GUI button texts to corresponding commands
+# updates the battery level and current voltage
 def UpdateBatteryLevel(window, battery_level, current_power):
     window['BATTERY_LEVEL'].update(f'Battery Level: {battery_level}%')
     window['CURRENT_POWER'].update(f'Current Power: {current_power} volts')

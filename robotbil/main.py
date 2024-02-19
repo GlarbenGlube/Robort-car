@@ -1,5 +1,5 @@
 import Hardware.motorstyrring as motor
-from kommandoer import follow, followWall, SUMO
+from kommandoer import followWall, SUMO
 from Hardware import ReadSensor as SA
 from edging import cbt
 import socket
@@ -29,7 +29,7 @@ functions_dict = {
     "backward": motor.back,
     "right": motor.turnright,
     "left": motor.turnleft,
-    "wallfollow": follow,
+    "wallfollow": followWall,
     "getbattery": UDPBattery,
     "edging": cbt,
     "boxpush": SUMO
@@ -57,8 +57,35 @@ while True:
                 receivermode = 0
             else:
                 x, y = map(int, message.split(','))
-                print(f"Received coordinates: X={x}, Y={y}")
-
+                if x == 5:
+                    print("state1 - forward / backward")
+                    if y <= 20:
+                        motor.stop()
+                        print("stop")
+                    else:
+                        print(y)
+                        motor.VariableLeft(y)
+                        motor.VariableRight(y)
+                elif x == 4:
+                    print("state1 - forward / backward")
+                    if y <= 5:
+                        motor.stop()
+                        print("stop")
+                    else:
+                        print(y)
+                        motor.VariableLeft(-1*y)
+                        motor.VariableRight(-1*y)
+                elif x == 0:
+                    print("state2 - left/right")
+                    if y < 0:
+                        print("left: ",y)
+                        motor.VariableRight(100 - y*-1)
+                    elif y > 0:
+                        print("Right: ",y)
+                        motor.VariableLeft(100-y)
+                    else: 
+                        motor.stop() 
+                        print("state3 - stop")
 
         else:
             received_msg = data.decode('utf-8')  # Decode the received bytes to string

@@ -17,7 +17,8 @@ frequency = 5000
 dutycycleR = .7
 dutycycleL = .706
 
-def UpdatePWM(freq=int(), dutyL=float(), dutyR=float()):
+# Update the PWM frequency and dutycycles for each motor. 
+def UpdatePWM(freq=int, dutyL=float(), dutyR=float()):
     if dutyR != None:
         rightpwm.duty_u16(int(65536 * dutyR))
     if dutyL != None:
@@ -37,13 +38,13 @@ def forward():
 def VariableLeft(speed):
     if speed <0:
         dutycycleL = (speed*-1)/100
-        rightForward.value(0)
-        rightBack.value(1)
+        leftForward.value(0)
+        leftBack.value(1)
     else:
         dutycycleL = speed/100
-        rightBack.value(0)
-        rightForward.value(1)
-    UpdatePWM()
+        leftBack.value(0)
+        leftForward.value(1)
+    UpdatePWM(1200,dutyL=dutycycleL)
 
 
 # adjustable motor speed (right)
@@ -56,7 +57,7 @@ def VariableRight(speed):
         dutycycleR = speed/100
         rightBack.value(0)
         rightForward.value(1)
-    UpdatePWM()
+    UpdatePWM(1200,dutyR=dutycycleR)
 
 
 # car go backwards

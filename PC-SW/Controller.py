@@ -25,11 +25,16 @@ def readController():
                 running = False
             elif event.type == pygame.JOYAXISMOTION:
                 print(f"Joystick axis motion. Axis: {event.axis}, Value: {event.value}")
-                y = round(event.value*100)
-                if  y <= -10 or y >= 10:
-                    send_coordinates(event.axis, y)
-                elif (-10 < y < -5) or (5<y<10):
-                    send_coordinates(event.axis, 0)
+                if event.axis == 0:
+                    y = round(event.value*100)
+                    if  y <= -10 or y >= 10:
+                        send_coordinates(event.axis, y)
+                    elif (-10 < y < -5) or (5<y<10):
+                        send_coordinates(event.axis, 0)
+                elif 4<=event.axis<=5:
+                    y = ((event.value+1)*100)/2
+                    send_coordinates(event.axis, round(y))
+
 
                 
             

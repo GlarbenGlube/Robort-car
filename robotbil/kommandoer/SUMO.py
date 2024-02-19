@@ -39,7 +39,7 @@ def SUMO():
         M.turnright()
         sleep(0.2)
 """""
-def cbt():
+def SUMO():
     while True:
         M.UpdatePWM(1200,dutyL=0.4,dutyR=0.4)
         print("start")

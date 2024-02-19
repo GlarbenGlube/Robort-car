@@ -6,6 +6,7 @@ from time import sleep
 sg.theme('DarkGrey15')  # setting the theme for GUI
 
 # Dictionary mapping GUI button texts to corresponding commands
+# in other words, it translates the button text into a command the program can execute
 commands = {"Follow Wall":"wallfollow","Push Object": "boxpush", 
             "controlOn": "controller", "controlOff": "manual",
             "forwardGo": "forward", "forwardStop": "stop",
@@ -17,7 +18,7 @@ commands = {"Follow Wall":"wallfollow","Push Object": "boxpush",
             "Edging": "edging",
             }
 
-# Dictionary mapping GUI button texts to corresponding commands
+# updates the battery level and current voltage
 def UpdateBatteryLevel(window, battery_level, current_power):
     window['BATTERY_LEVEL'].update(f'Battery Level: {battery_level}%')
     window['CURRENT_POWER'].update(f'Current Power: {current_power} volts')
@@ -25,7 +26,7 @@ def UpdateBatteryLevel(window, battery_level, current_power):
 
 # function to create and manage the GUI
 def GUI():
-    # defining GUI layout
+    # defining GUI layout, creating buttons with text of a certain size, font and offset
     layout = [[sg.Button('Follow Wall', size=(12, 2), pad=(10, 50), font='Impact'),
                sg.Button('Push Object', size=(12, 2), pad=(10, 50), font='Impact'),
                sg.Button('Controller', size=(12, 2), pad=(10, 50), font='Impact', key= 'control'),
@@ -81,6 +82,7 @@ def GUI():
     # Main loop for GUI event handling
     while True:
         event, values = window.read()
+        # if the X in GUI is pressed then the program will break and shut down
         if event == sg.WIN_CLOSED or event == 'Quit':
             break
         else:

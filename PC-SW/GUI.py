@@ -26,7 +26,7 @@ def UpdateBatteryLevel(window, battery_level, current_power):
 
 # function to create and manage the GUI
 def GUI():
-    # defining GUI layout
+    # defining GUI layout, creating buttons with text of a certain size, font and offset
     layout = [[sg.Button('Follow Wall', size=(12, 2), pad=(10, 50), font='Impact'),
                sg.Button('Push Object', size=(12, 2), pad=(10, 50), font='Impact'),
                sg.Button('Controller', size=(12, 2), pad=(10, 50), font='Impact', key= 'control'),
@@ -82,6 +82,7 @@ def GUI():
     # Main loop for GUI event handling
     while True:
         event, values = window.read()
+        # if the X in GUI is pressed then the program will break and shut down
         if event == sg.WIN_CLOSED or event == 'Quit':
             break
         else:

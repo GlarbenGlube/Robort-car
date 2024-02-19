@@ -19,11 +19,12 @@ dutycycleL = .706
 
 # Update the PWM frequency and dutycycles for each motor. 
 def UpdatePWM(freq=int, dutyL=float(), dutyR=float()):
-    if dutyR != None:
+    print(f"freq: {freq} L: {dutyL} R: {dutyR}")
+    if dutyR != 0:
         rightpwm.duty_u16(int(65536 * dutyR))
-    if dutyL != None:
+    if dutyL != 0:
         leftpwm.duty_u16(int(65536 * dutyL))
-    if freq != None and freq != 0:
+    if freq != 0 and freq != 0:
         leftpwm.freq(freq)
         rightpwm.freq(freq)
 

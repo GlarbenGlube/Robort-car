@@ -89,13 +89,14 @@ def GUI():
                 print(commands[event])   # Printing the corresponding command
                 Remote.UDPSend(commands[event])   # sending command via UDP
                 if event == 'controlOn':
-                    controller()    # activating controller
+                    controller()                        # activating controller
                 elif event == 'Update Battery':
-                    currentPower = Remote.UDPRecieve()    # recieving current power information
-                    try: batteryLevel = round(float(currentPower)/8.4*100, 2)    # calculating battery power
+                    currentPower = Remote.UDPRecieve()  # recieving current power information
+                    try: 
+                        batteryLevel = round(float(currentPower)/8.4*100, 2)   # calculating battery power
+                        UpdateBatteryLevel(window, batteryLevel, currentPower)      # updating GUI with battery info
                     except: pass
-                    UpdateBatteryLevel(window, batteryLevel, currentPower)   # updating GUI with battery info
     
     window.close()
 
-GUI()
+GUI()                                                                                                                                                                                                                          

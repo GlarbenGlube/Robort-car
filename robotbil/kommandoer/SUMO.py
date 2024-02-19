@@ -41,13 +41,13 @@ def SUMO():
 """""
 def SUMO():
     # set initial motor speed and direction
-    while True:
+    while B.button != 1:
         M.UpdatePWM(1200,dutyL=0.4,dutyR=0.4)
         print("start")
         b = 0
         # measures distance to obstacle
         distance = S.measureDistance()
-        while b < 25:
+        while b < 25 and B.button != 1:
             # Continuously measure distance to adjust movement
             distance = S.measureDistance()
             if distance < 110:
@@ -69,7 +69,7 @@ def SUMO():
         M.UpdatePWM(1000,dutyL=0.615,dutyR=0.6)
         reflection = S.measureReflection()
         # Move forward until an object is detected
-        while reflection <= 40000:
+        while reflection <= reflectionThreshold and B.button != 1:
             print(reflection)
             M.forward()
             reflection = S.measureReflection()

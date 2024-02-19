@@ -38,5 +38,3 @@ def cbt():
         M.turnright()
         sleep(0.5)
         M.stop()
-
-cbt()

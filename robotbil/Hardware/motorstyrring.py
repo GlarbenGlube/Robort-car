@@ -22,7 +22,7 @@ def UpdatePWM(freq=int(), dutyL=float(), dutyR=float()):
         rightpwm.duty_u16(int(65536 * dutyR))
     if dutyL != None:
         leftpwm.duty_u16(int(65536 * dutyL))
-    if freq != None:
+    if freq != None and freq != 0:
         leftpwm.freq(freq)
         rightpwm.freq(freq)
 
@@ -33,8 +33,8 @@ def forward():
     rightBack.value(0)
     leftBack.value(0)
 
-# adjustable turn speed (left)
-def VariableLeft(speed): # has 
+# adjustable motor speed (left)
+def VariableLeft(speed):
     if speed <0:
         dutycycleL = (speed*-1)/100
         rightForward.value(0)
@@ -46,7 +46,7 @@ def VariableLeft(speed): # has
     UpdatePWM()
 
 
-# adjustable turn speed (right)
+# adjustable motor speed (right)
 def VariableRight(speed):
     if speed <0:
         dutycycleR = (speed*-1)/100

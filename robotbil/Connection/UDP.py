@@ -6,7 +6,8 @@ def UDPConnect():
 # Initialize network
     wlan = network.WLAN(network.STA_IF)
     wlan.active(True)
-    wlan.connect('ITEK 2nd', '2nd_Semester_F24v')   
+    # wlan.connect('ITEK 2nd', '2nd_Semester_F24v')  
+    wlan.connect('pico test','123454321') 
     wlandelay = time.ticks_ms() + 10000     # Set timeout for connection
     
     led = Pin("LED", Pin.OUT)

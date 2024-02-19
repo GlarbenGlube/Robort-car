@@ -1,5 +1,5 @@
 import Hardware.motorstyrring as motor
-from kommandoer import followWall, SUMO
+from kommandoer import follow, followWall, SUMO
 from Hardware import ReadSensor as SA
 from edging import cbt
 import socket
@@ -7,13 +7,14 @@ import Connection.UDP as UDP
 from time import sleep
 import gc
 
-ip = '10.120.0.86'
+ip = '192.168.137.1'
+# ip = '10.120.0.86'
 port = 5001
 
 def UDPBattery():
     battery = str(SA.measureBattery())
+    sleep(0.5)
     # Open UDP socket
-    sleep(1)
     sock = socket.socket(socket.AF_INET,socket.SOCK_DGRAM)
     battery.encode('utf-8')
     sock.sendto(battery, (ip , port))
@@ -28,9 +29,10 @@ functions_dict = {
     "backward": motor.back,
     "right": motor.turnright,
     "left": motor.turnleft,
-    "wallfollow": followWall,
+    "wallfollow": follow,
     "getbattery": UDPBattery,
     "edging": cbt,
+    "boxpush": SUMO
 }
 
 while True:
@@ -41,7 +43,7 @@ while True:
     sock.bind((HOST, PORT))
     print(f"Listening for UDP messages on {HOST}:{PORT}")
 
-    motor.UpdatePWM(5000,0.7,0.7)
+    motor.UpdatePWM(1000,0.7,0.7)
 
     # Main loop
     while True:

@@ -12,6 +12,7 @@ rightBack = Pin(2, Pin.OUT)
 leftForward = Pin(4, Pin.OUT)
 leftBack = Pin(5, Pin.OUT)
 
+# variables to control the speed of the motors
 frequency = 5000
 dutycycleR = .7
 dutycycleL = .706
@@ -25,12 +26,14 @@ def UpdatePWM(freq=int(), dutyL=float(), dutyR=float()):
         leftpwm.freq(freq)
         rightpwm.freq(freq)
 
+#car go foward
 def forward():
     rightForward.value(1)
     leftForward.value(1)
     rightBack.value(0)
     leftBack.value(0)
 
+# adjustable turn speed (left)
 def VariableLeft(speed): # has 
     if speed <0:
         dutycycleL = (speed*-1)/100
@@ -42,6 +45,8 @@ def VariableLeft(speed): # has
         rightForward.value(1)
     UpdatePWM()
 
+
+# adjustable turn speed (right)
 def VariableRight(speed):
     if speed <0:
         dutycycleR = (speed*-1)/100
@@ -52,19 +57,25 @@ def VariableRight(speed):
         rightBack.value(0)
         rightForward.value(1)
     UpdatePWM()
-    
+
+
+# car go backwards
 def back():
     rightForward.value(0)
     leftForward.value(0)
     rightBack.value(1)
     leftBack.value(1)
 
+
+# car stops
 def stop():
     rightForward.value(0)
     leftForward.value(0)
     rightBack.value(0)
     leftBack.value(0)
 
+
+# car turns right on the spot
 def turnright():
     leftForward.value(1)
     leftBack.value(0)
@@ -72,10 +83,10 @@ def turnright():
     rightForward.value(0)
 
 
+
+# car turns left on the spot
 def turnleft():
     leftBack.value(1)
     leftForward.value(0)
     rightBack.value(0)
     rightForward.value(1)
-
-

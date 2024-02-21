@@ -7,8 +7,8 @@ import Connection.UDP as UDP
 from time import sleep
 import gc
 
-ip = '192.168.137.1'
-# ip = '10.120.0.86'
+# ip = '192.168.137.1'
+ip = '10.120.0.86'
 port = 5001
 
 def UDPBattery():
@@ -43,7 +43,8 @@ while True:
     sock.bind((HOST, PORT))
     print(f"Listening for UDP messages on {HOST}:{PORT}")
 
-    motor.UpdatePWM(1000,0.7,0.7)
+    motor.UpdateFreq(1200,1200)
+    motor.UpdatePWM(0.7,0.7)
 
     # Main loop
     while True:
@@ -79,7 +80,7 @@ while True:
                     print("state2 - left/right")
                     if y < 0:
                         print("left: ",y)
-                        motor.VariableRight(100 - y*-1)
+                        motor.VariableRight(100 - (y*-1))
                     elif y > 0:
                         print("Right: ",y)
                         motor.VariableLeft(100-y)

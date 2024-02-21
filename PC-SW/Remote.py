@@ -1,7 +1,7 @@
 import socket
 
-# ip = '10.120.0.8'
-ip = '192.168.137.202'
+ip = '10.120.0.8'
+# ip = '192.168.137.202'
 port = 5001
 
 def UDPSend(cmd:str):

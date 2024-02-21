@@ -1,13 +1,13 @@
 import time 
 from machine import ADC, Pin, time_pulse_us
 
-gy = Pin(17, Pin.IN,)
+gy = Pin(22, Pin.IN,)
 QA = ADC(Pin(26))
 bat = ADC(Pin(27))
 
 def measureDistance():
     while gy.value == True: pass
-    pulsetime = time_pulse_us(17, 1)
+    pulsetime = time_pulse_us(22, 1)
     return pulsetime/100
 
 def measureReflection():
@@ -21,4 +21,3 @@ def measureBattery():
 # testing the distance measuring function 
 # while True:
 #     print(measureDistance())
-#     time.sleep_ms(300)

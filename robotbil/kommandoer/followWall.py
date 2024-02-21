@@ -32,7 +32,7 @@ def follow():
 def followwall():
     counter = 0
     # Checks if button is pressed
-    while pob.readbutton != "ON":
+    while pob.readbutton() != "ON":
         # Sets the speed of the motors
         ms.UpdatePWM(1200, dutyL=0.4, dutyR=0.4)
 

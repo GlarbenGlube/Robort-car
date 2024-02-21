@@ -7,13 +7,14 @@ import Connection.UDP as UDP
 from time import sleep
 import gc
 
-ip = '10.120.0.86'
+ip = '192.168.137.1'
+# ip = '10.120.0.86'
 port = 5001
 
 def UDPBattery():
     battery = str(SA.measureBattery())
+    sleep(0.5)
     # Open UDP socket
-    sleep(1)
     sock = socket.socket(socket.AF_INET,socket.SOCK_DGRAM)
     battery.encode('utf-8')
     sock.sendto(battery, (ip , port))
@@ -31,6 +32,7 @@ functions_dict = {
     "wallfollow": followWall,
     "getbattery": UDPBattery,
     "edging": cbt,
+    "boxpush": SUMO
 }
 
 while True:
@@ -41,7 +43,7 @@ while True:
     sock.bind((HOST, PORT))
     print(f"Listening for UDP messages on {HOST}:{PORT}")
 
-    motor.UpdatePWM(5000,0.7,0.7)
+    motor.UpdatePWM(1000,0.7,0.7)
 
     # Main loop
     while True:
@@ -55,8 +57,35 @@ while True:
                 receivermode = 0
             else:
                 x, y = map(int, message.split(','))
-                print(f"Received coordinates: X={x}, Y={y}")
-
+                if x == 5:
+                    print("state1 - forward / backward")
+                    if y <= 20:
+                        motor.stop()
+                        print("stop")
+                    else:
+                        print(y)
+                        motor.VariableLeft(y)
+                        motor.VariableRight(y)
+                elif x == 4:
+                    print("state1 - forward / backward")
+                    if y <= 5:
+                        motor.stop()
+                        print("stop")
+                    else:
+                        print(y)
+                        motor.VariableLeft(-1*y)
+                        motor.VariableRight(-1*y)
+                elif x == 0:
+                    print("state2 - left/right")
+                    if y < 0:
+                        print("left: ",y)
+                        motor.VariableRight(100 - y*-1)
+                    elif y > 0:
+                        print("Right: ",y)
+                        motor.VariableLeft(100-y)
+                    else: 
+                        motor.stop() 
+                        print("state3 - stop")
 
         else:
             received_msg = data.decode('utf-8')  # Decode the received bytes to string

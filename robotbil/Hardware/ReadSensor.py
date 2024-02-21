@@ -21,4 +21,4 @@ def measureBattery():
 # testing the distance measuring function 
 # while True:
 #     print(measureDistance())
-#     time.sleep_ms(10)
+#     time.sleep_ms(300)

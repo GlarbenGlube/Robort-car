@@ -47,41 +47,40 @@ def followwall():
             # If the distance is greater than 100 and less than 150
             if dis > 100 and dis < 150:
                 # Adjusts the left motor speed based on distance and moves forward
-                ms.VariableRight(RS.measureDistance() * 0.5)
+                ms.VariableRight(dis * 0.5)
                 ms.forward()
                 sleep(1)
                 ms.stop()
                 counter = 0
             else:
                 # Adjusts the left motor speed based on distance and stops
-                ms.VariableRight(RS.measureDistance() * 0.5)
+                ms.VariableRight(dis * 0.5)
                 sleep(1)
                 ms.stop()
                 counter += 1
                 if counter == 3:
-                    ms.VariableRight(RS.measureDistance() * 0.5)
+                    ms.VariableRight(dis * 0.5)
                     sleep(3)
                     ms.stop()
                     counter = 0
-
-        # If the measured distance is less than 100
+                    # If the measured distance is less than 100
         else:
 
             # If the distance is less than 100 and greater than 50
             if dis < 100 and dis > 50:
                 # Adjusts the right motor speed based on distance and moves forward
-                ms.VariableLeft(RS.measureDistance() * 0.5)
+                ms.VariableLeft(dis * 0.5)
                 ms.forward()
                 sleep(1)
                 ms.stop()
             else:
                 # Adjusts the right motor speed based on distance and stops
-                ms.VariableLeft(RS.measureDistance() * 0.5)
+                ms.VariableLeft(dis * 0.5)
                 sleep(1)
                 ms.stop()
                 counter += 1
                 if counter == 3:
-                    ms.VariableLeft(RS.measureDistance() * 0.5)
+                    ms.VariableLeft(dis * 0.5)
                     sleep(3)
                     ms.stop()
                     counter = 0

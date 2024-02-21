@@ -32,7 +32,7 @@ def follow():
 def followwall():
     counter = 0
     # Checks if button is pressed
-    while pob.readbutton != "ON":
+    while pob.readbutton() != "ON":
         # Sets the speed of the motors
         ms.UpdatePWM(1200, dutyL=0.4, dutyR=0.4)
 
@@ -43,9 +43,9 @@ def followwall():
         dis = RS.measureDistance()
 
         # If the measured distance is greater than 100
-        if dis > 10:
+        if dis > 30:
             # If the distance is greater than 100 and less than 150
-            if dis > 10 and dis < 15:
+            if dis > 30 and dis < 40:
                 # Adjusts the left motor speed based on distance and moves forward
                 ms.VariableRight(dis * 0.5)
                 ms.forward()
@@ -67,7 +67,7 @@ def followwall():
         else:
 
             # If the distance is less than 100 and greater than 50
-            if dis < 10 and dis > 5:
+            if dis < 20 and dis > 10:
                 # Adjusts the right motor speed based on distance and moves forward
                 ms.VariableLeft(dis * 0.5)
                 ms.forward()

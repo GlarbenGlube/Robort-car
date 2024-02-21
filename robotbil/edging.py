@@ -38,3 +38,16 @@ def cbt():
         M.turnright()
         sleep(0.5)
         M.stop()
+
+from machine import UART,Pin
+
+
+
+uart = UART(1, baudrate=9600, tx=Pin(4), rx=Pin(5))
+
+uart.init(bits=8, parity=None, stop=2)
+
+# 0xA5+0x51+0xF6
+uart.write(int('0x5A'))
+uart.write(int('0x51'))
+uart.write(int('0xF6'))

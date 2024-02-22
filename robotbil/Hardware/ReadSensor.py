@@ -16,6 +16,7 @@ def measureReflection():
 def measureBattery():
     battery = bat.read_u16()
     battery_voltage = battery/(8.4*(1/3))*3.3/65535*8.4
+    print(battery_voltage)
     return battery_voltage
 
 # testing the distance measuring function 

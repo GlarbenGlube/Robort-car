@@ -93,9 +93,9 @@ def GUI():
                 if event == 'controlOn':
                     controller()                        # activating controller
                 elif event == 'Update Battery':
-                    currentPower = Remote.UDPRecieve()  # recieving current power information
                     try: 
-                        batteryLevel = round(float(currentPower)/8.4*100, 2)   # calculating battery power
+                        currentPower = Remote.UDPRecieve()  # recieving current power information
+                        batteryLevel = round((float(currentPower)-6.4)/2*100, 2)   # calculating battery power
                         UpdateBatteryLevel(window, batteryLevel, currentPower)      # updating GUI with battery info
                     except: pass
     

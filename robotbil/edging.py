@@ -1,6 +1,6 @@
 # # from Hardware import motorstyrring as M
-# from Hardware import ReadSensor as S
-# from time import sleep_ms
+from Hardware import ReadSensor as S
+from time import sleep_ms
 
 # # def cbt():
 # #     while True:
@@ -71,9 +71,9 @@
 
 
 
-# while True:
-#     print(S.measureDistance())  
-#     sleep_ms(100)
+while True:
+    print(S.measureDistance())  
+    sleep_ms(40)
 # # 0xA5+0x51+0xF6
 
 # # from machine import Pin,UART

@@ -50,7 +50,7 @@ def Sumo():
         while b < 15 and B.button != 1:
             # Continuously measure distance to adjust movement
             distance = S.measureDistance()
-            if distance < 110:
+            if distance < 93:
                 b=31
                 # If obstacle is far, turn left with a delay proportional to distance
                 if distance > 10:

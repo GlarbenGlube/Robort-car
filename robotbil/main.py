@@ -1,5 +1,5 @@
 import Hardware.motorstyrring as motor
-from kommandoer import followWall, SUMO
+from kommandoer import SUMO, followWall
 from Hardware import ReadSensor as SA
 # from edging import cbt
 import socket
@@ -29,10 +29,10 @@ functions_dict = {
     "backward": motor.back,
     "right": motor.turnright,
     "left": motor.turnleft,
-    "wallfollow": followWall,
+    "wallfollow": followWall.followwall,
     "getbattery": UDPBattery,
     # "edging": cbt,
-    "boxpush": SUMO
+    "boxpush": SUMO.Sumo,
 }
 
 while True:
@@ -43,8 +43,8 @@ while True:
     sock.bind((HOST, PORT))
     print(f"Listening for UDP messages on {HOST}:{PORT}")
 
-    motor.UpdateFreq(1200,1200)
-    motor.UpdatePWM(0.7,0.7)
+    motor.UpdateFreq(75,75)
+    motor.UpdatePWM(0.4,0.4)
 
     # Main loop
     while True:

@@ -15,7 +15,9 @@ leftBack = Pin(5, Pin.OUT)
 # variables to control the speed of the motors
 frequency = 1200
 dutycycleR = .7
+offsetR = 0.05
 dutycycleL = .706
+offsetL = -0.1
 
 def UpdateFreq(freqL,freqR):
     print(f"freq L: {freqL} freq R: {freqR}")
@@ -26,9 +28,9 @@ def UpdateFreq(freqL,freqR):
 def UpdatePWM(dutyL, dutyR):
     print(f"L: {dutyL} R: {dutyR}")
     if dutyR != 0:
-        rightpwm.duty_u16(int(65536 * dutyR))
+        rightpwm.duty_u16(int(65536 * dutyR+offsetR))
     if dutyL != 0:
-        leftpwm.duty_u16(int(65536 * dutyL))
+        leftpwm.duty_u16(int(65536 * dutyL+offsetL))
 
 
 #car go foward

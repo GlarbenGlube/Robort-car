@@ -39,37 +39,34 @@ def SUMO():
         M.turnright()
         sleep(0.2)
 """""
-def SUMO():
+def Sumo():
     # set initial motor speed and direction
-    while B.button != 1:
-        M.UpdatePWM(1200,dutyL=0.4,dutyR=0.4)
+    while B.readbutton() != 1:
+        M.UpdatePWM(0.22,0.22)
         print("start")
         b = 0
         # measures distance to obstacle
         distance = S.measureDistance()
-        while b < 25 and B.button != 1:
+        while b < 15 and B.button != 1:
             # Continuously measure distance to adjust movement
             distance = S.measureDistance()
             if distance < 110:
                 b=31
-                if distance < 10:
-                    # If obstacle is very close, turn right with a delay proportional to distance
+                # If obstacle is far, turn left with a delay proportional to distance
+                if distance > 10:
                     M.turnright()
-                    sleep(0.25 - distance/100)
+                    sleep(-0.1 + distance/100*.6)
                     M.stop()
                 else:
-                    # If obstacle is near, turn left with a delay proportional to distance
-                    M.turnleft()
-                    sleep(distance/100)
                     M.stop()
             # Increment counter for number of turns
-            M.turnright()
+            M.turnleft()
             b+=1
         # Adjust motor speed for obstacle avoidance
-        M.UpdatePWM(1000,dutyL=0.615,dutyR=0.6)
+        M.UpdatePWM(0.4,0.4)
         reflection = S.measureReflection()
         # Move forward until an object is detected
-        while reflection <= reflectionThreshold and B.button != 1:
+        while reflection <= reflectionThreshold and B.readbutton() != 1:
             print(reflection)
             M.forward()
             reflection = S.measureReflection()
@@ -78,11 +75,11 @@ def SUMO():
         sleep(0.05)
         print("return")
         # Adjust motor speed for returning back
-        M.UpdatePWM(1000,dutyL=0.52,dutyR=0.5)
+        M.UpdatePWM(0.35,0.35)
         M.back()
-        sleep(1)
-        M.stop()
-        # Turn right before restarting the loop
-        M.turnright()
         sleep(0.5)
+        M.stop()
+        # Turn left before restarting the loop
+        M.turnleft()
+        sleep(0.3)
         M.stop()

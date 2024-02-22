@@ -47,34 +47,13 @@ def followwall():
             # If the distance is greater than 100 and less than 150
             if dis > 30 and dis < 40:
                 # Adjusts the left motor speed based on distance and moves forward
-                ms.VariableRight(dis * 0.5)
+                ms.VariableLeft(dis * 0.5)
                 ms.forward()
                 sleep(1)
                 ms.stop()
                 counter = 0
             else:
                 # Adjusts the left motor speed based on distance and stops
-                ms.VariableRight(dis * 0.5)
-                sleep(1)
-                ms.stop()
-                counter += 1
-                if counter == 3:
-                    ms.VariableRight(dis * 0.5)
-                    sleep(3)
-                    ms.stop()
-                    counter = 0
-                    # If the measured distance is less than 100
-        else:
-
-            # If the distance is less than 100 and greater than 50
-            if dis < 20 and dis > 10:
-                # Adjusts the right motor speed based on distance and moves forward
-                ms.VariableLeft(dis * 0.5)
-                ms.forward()
-                sleep(1)
-                ms.stop()
-            else:
-                # Adjusts the right motor speed based on distance and stops
                 ms.VariableLeft(dis * 0.5)
                 sleep(1)
                 ms.stop()
@@ -84,6 +63,28 @@ def followwall():
                     sleep(3)
                     ms.stop()
                     counter = 0
+                    # If the measured distance is less than 100
+        else:
+
+            # If the distance is less than 100 and greater than 50
+            if dis < 20 and dis > 10:
+                # Adjusts the right motor speed based on distance and moves forward
+                ms.VariableRight(dis * 0.5)
+                ms.forward()
+                sleep(1)
+                ms.stop()
+            else:
+                # Adjusts the right motor speed based on distance and stops
+                ms.VariableRight(dis * 0.5)
+                sleep(1)
+                ms.stop()
+                counter += 1
+                if counter == 3:
+                    ms.VariableRight(dis * 0.5)
+                    sleep(3)
+                    ms.stop()
+                    counter = 0
+followwall()
 # tænder sensoren
 # læser afstanden
 # gør noget afhængig af afstand. hvis den er mindre end grænseværdien drej til venstre og ret op hvis den er større end grænseværdien drej til venstre

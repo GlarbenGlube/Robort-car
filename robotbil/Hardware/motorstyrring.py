@@ -1,8 +1,8 @@
 from machine import Pin, PWM
 
 # PWM pins for controlling each motor
-leftpwm = PWM(Pin(0))
-rightpwm = PWM(Pin(1))
+rightpwm = PWM(Pin(0))
+leftpwm = PWM(Pin(1))
 
 # Left motor pins
 rightForward = Pin(3, Pin.OUT)
@@ -15,9 +15,9 @@ leftBack = Pin(5, Pin.OUT)
 # variables to control the speed of the motors
 frequency = 1200
 dutycycleR = .7
-offsetR = 0.05
+offsetR = 0
 dutycycleL = .706
-offsetL = -0.1
+offsetL = 0
 
 def UpdateFreq(freqL,freqR):
     print(f"freq L: {freqL} freq R: {freqR}")
@@ -74,7 +74,7 @@ def VariableSpeed(left, right):
         dutycycleL = left/100
         leftBack.value(0)
         leftForward.value(1)
-
+        
     if right <0:
         dutycycleR = (right*-1)/100
         rightForward.value(0)
@@ -84,7 +84,7 @@ def VariableSpeed(left, right):
         rightBack.value(0)
         rightForward.value(1)
 
-        UpdatePWM(dutycycleL, dutycycleR)
+    UpdatePWM(dutycycleL, dutycycleR)
 
 # car go backwards
 def back():

@@ -11,6 +11,74 @@ import gc
 ip = '10.120.0.86'
 port = 5001
 
+def controller(x,y):
+    speed = 60
+    if x != 1: 
+        y = int(y)
+        if x == 5:
+            print("state1 - forward / backward")
+            if y <= 10:
+                motor.stop()
+                print("stop")
+            else:
+                print(y)
+                motor.VariableSpeed(y,y)
+
+        elif x == 4:
+            print("state1 - forward / backward")
+            if y <= 5:
+                speed = 0
+                motor.stop()
+                print("stop")
+            else:
+                print(y)
+                speed = y
+                motor.VariableSpeed(-1*y,-1*y)
+    
+    elif x == 1:
+        x,y = map(int,y.split('_'))
+        # if x == -1 and y == -1:
+        #     print("back left",x," ",y)
+        #     motor.VariableSpeed(speed*y, 2)
+        # elif (y == -1 or y == 1) and x == 0:
+        #     print("forward/back",x," ",y)
+        #     motor.VariableSpeed(speed*y,speed*y)
+        # elif y == -1 and x == 1:
+        #     print("back right",x," ",y)
+        #     motor.VariableSpeed( 2, speed*y)
+        # elif y == 1 and x == -1:
+        #     print("front left",x," ",y)
+        #     motor.VariableSpeed(speed, 2)
+        # elif (x == -1 or x == 1) and y == 0:
+        #     print("left/right",x," ",y)
+        #     motor.VariableSpeed(speed*x,speed*x*-1)
+        # elif y == 1 and x == 1:
+        #     print("front right",x," ",y)
+        #     motor.VariableSpeed(2, speed)
+        # else:
+        #     print("stop")
+        #     motor.stop()
+        if x == -1:
+            speed = 60
+            if y == -1 or y == 1:
+                motor.VariableSpeed(5, speed*y)
+            if y == 0:
+                motor.VariableSpeed(speed*-1,speed) 
+        elif x == 1:
+            speed = 60
+            if y == -1 or y == 1:
+                motor.VariableSpeed(speed*y, 5)
+            if y == 0:
+                motor.VariableSpeed(speed,-1*speed) 
+        elif x == 0:
+            speed = 60
+            if y == -1 or y == 1:
+                motor.VariableSpeed(speed*y, speed*y)
+            if y == 0:
+                motor.stop() 
+
+
+
 def UDPBattery():
     battery = str(SA.measureBattery())
     sleep(0.5)
@@ -57,36 +125,9 @@ while True:
             if message == 'manual':
                 receivermode = 0
             else:
-                x, y = map(int, message.split(','))
-                if x == 5:
-                    print("state1 - forward / backward")
-                    if y <= 20:
-                        motor.stop()
-                        print("stop")
-                    else:
-                        print(y)
-                        motor.VariableLeft(y)
-                        motor.VariableRight(y)
-                elif x == 4:
-                    print("state1 - forward / backward")
-                    if y <= 5:
-                        motor.stop()
-                        print("stop")
-                    else:
-                        print(y)
-                        motor.VariableLeft(-1*y)
-                        motor.VariableRight(-1*y)
-                elif x == 0:
-                    print("state2 - left/right")
-                    if y < 0:
-                        print("left: ",y)
-                        motor.VariableRight(100 - (y*-1))
-                    elif y > 0:
-                        print("Right: ",y)
-                        motor.VariableLeft(100-y)
-                    else: 
-                        motor.stop() 
-                        print("state3 - stop")
+                x, y = map(str, message.split(','))
+                x = int(x)
+                speed = controller(x,y)
 
         else:
             received_msg = data.decode('utf-8')  # Decode the received bytes to string

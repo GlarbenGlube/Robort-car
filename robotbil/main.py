@@ -1,7 +1,7 @@
 import Hardware.motorstyrring as motor
 from kommandoer import followWall, SUMO
 from Hardware import ReadSensor as SA
-from edging import cbt
+# from edging import cbt
 import socket
 import Connection.UDP as UDP
 from time import sleep
@@ -31,7 +31,7 @@ functions_dict = {
     "left": motor.turnleft,
     "wallfollow": followWall,
     "getbattery": UDPBattery,
-    "edging": cbt,
+    # "edging": cbt,
     "boxpush": SUMO
 }
 

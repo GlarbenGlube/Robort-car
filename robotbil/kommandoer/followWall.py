@@ -30,11 +30,14 @@ def follow():
 
 
 def followwall():
+    leftspeed = 0
+    rightspeed = 0
+
     counter = 0
     # Checks if button is pressed
     while pob.readbutton() != "ON":
         # Sets the speed of the motors
-        ms.UpdatePWM(1200, dutyL=0.4, dutyR=0.4)
+        ms.UpdatePWM(0.4,0.4)
 
         # Prints "start" message
         print("start")
@@ -54,7 +57,7 @@ def followwall():
                 counter = 0
             else:
                 # Adjusts the left motor speed based on distance and stops
-                ms.VariableLeft(dis * 0.5)
+                ms.VariableSpeed(leftspeed,rightspeed)
                 sleep(1)
                 ms.stop()
                 counter += 1
@@ -84,7 +87,6 @@ def followwall():
                     sleep(3)
                     ms.stop()
                     counter = 0
-followwall()
 # tænder sensoren
 # læser afstanden
 # gør noget afhængig af afstand. hvis den er mindre end grænseværdien drej til venstre og ret op hvis den er større end grænseværdien drej til venstre

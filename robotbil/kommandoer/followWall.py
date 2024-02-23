@@ -58,7 +58,6 @@ def followwall():
                 leftspeed = 20
                 ms.VariableSpeed(leftspeed,rightspeed)
                 ms.forward()
-                ms.stop()
             #it has met a wall
             else:
                 while dis < 20 and pob.readbutton() != 1:
@@ -73,7 +72,6 @@ def followwall():
             if dis < 40:
                 ms.VariableSpeed(40,30)
                 ms.forward()
-                ms.stop()
             #it has dropped off a cliff
             else:
                 while dis > 30 and pob.readbutton() != 1:

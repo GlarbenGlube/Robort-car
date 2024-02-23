@@ -83,7 +83,7 @@ def followwall():
                     ms.VariableSpeed(40,10)
                     dis = RS.measureDistance()
                     print("cliff")
-
+    ms.stop()
 # tænder sensoren
 # læser afstanden
 # gør noget afhængig af afstand. hvis den er mindre end grænseværdien drej til venstre og ret op hvis den er større end grænseværdien drej til venstre

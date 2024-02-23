@@ -87,4 +87,4 @@ def followwall():
 # tænder sensoren
 # læser afstanden
 # gør noget afhængig af afstand. hvis den er mindre end grænseværdien drej til venstre og ret op hvis den er større end grænseværdien drej til venstre
-# hvis afstanden er endnu højere eller lavere end de 2 grænseværdier. drej hårdere.
+# hvis afstanden er endnu højere eller lavere end de 2 grænseværdier. drej hårdere.bb

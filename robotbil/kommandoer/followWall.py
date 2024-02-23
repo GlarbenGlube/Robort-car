@@ -45,31 +45,35 @@ def followwall():
     # Checks if button is pressed
     while pob.readbutton() != 1:
         dis = RS.measureDistance()
+        #while within distance limits it drives forward
         while pob.readbutton() != 1 and dis <= 30 and dis >= 20:
             ms.forward()
             ms.UpdatePWM(0.4, 0.4)
             dis = RS.measureDistance()
-
+        #it is no longer within limits. it now checks which limit it broke
         if dis < 20:
+            #checks if we have a case of a small dent
             if dis > 10:
                 rightspeed = dis * 0.5
                 ms.VariableSpeed(leftspeed,rightspeed)
                 ms.forward()
                 ms.stop()
+            #it has met a wall
             else:
-                while dis < 20
+                while dis < 20:
                     # Adjusts the right motor speed based on distance and stops
                     rightspeed = dis * 0.7
                     ms.VariableSpeed(leftspeed,rightspeed)
                     ms.stop()
                     dis = RS.measureDistance()
-        # If the measured distance is greater than 100
+        #it broke limit for far away
         else:
-            # If the distance is greater than 100 and less than 150
+            #is it still within acceptable distances for a bump
             if dis < 40:
                 ms.VariableSpeed(4,3)
                 ms.forward()
                 ms.stop()
+            #it has dropped off a cliff
             else:
                 while dis > 30:
                     # Adjusts the left motor speed based on distance and stops

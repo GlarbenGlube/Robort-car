@@ -37,41 +37,17 @@ def controller(x,y):
     
     elif x == 1:
         x,y = map(int,y.split('_'))
-        # if x == -1 and y == -1:
-        #     print("back left",x," ",y)
-        #     motor.VariableSpeed(speed*y, 2)
-        # elif (y == -1 or y == 1) and x == 0:
-        #     print("forward/back",x," ",y)
-        #     motor.VariableSpeed(speed*y,speed*y)
-        # elif y == -1 and x == 1:
-        #     print("back right",x," ",y)
-        #     motor.VariableSpeed( 2, speed*y)
-        # elif y == 1 and x == -1:
-        #     print("front left",x," ",y)
-        #     motor.VariableSpeed(speed, 2)
-        # elif (x == -1 or x == 1) and y == 0:
-        #     print("left/right",x," ",y)
-        #     motor.VariableSpeed(speed*x,speed*x*-1)
-        # elif y == 1 and x == 1:
-        #     print("front right",x," ",y)
-        #     motor.VariableSpeed(2, speed)
-        # else:
-        #     print("stop")
-        #     motor.stop()
         if x == -1:
-            speed = 60
             if y == -1 or y == 1:
                 motor.VariableSpeed(5, speed*y)
             if y == 0:
                 motor.VariableSpeed(speed*-1,speed) 
         elif x == 1:
-            speed = 60
             if y == -1 or y == 1:
                 motor.VariableSpeed(speed*y, 5)
             if y == 0:
                 motor.VariableSpeed(speed,-1*speed) 
         elif x == 0:
-            speed = 60
             if y == -1 or y == 1:
                 motor.VariableSpeed(speed*y, speed*y)
             if y == 0:

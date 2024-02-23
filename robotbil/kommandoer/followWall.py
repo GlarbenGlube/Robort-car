@@ -49,12 +49,13 @@ def followwall():
         while pob.readbutton() != 1 and dis <= 30 and dis >= 20:
             ms.forward()
             ms.UpdatePWM(0.4, 0.4)
+            ms.VariableSpeed(40, 40)
             dis = RS.measureDistance()
         #it is no longer within limits. it now checks which limit it broke
         if dis < 20:
             #checks if we have a case of a small dent
             if dis > 10:
-                rightspeed = 40
+                leftspeed = 20
                 ms.VariableSpeed(leftspeed,rightspeed)
                 ms.forward()
                 ms.stop()
@@ -62,7 +63,7 @@ def followwall():
             else:
                 while dis < 20 and pob.readbutton() != 1:
                     # Adjusts the right motor speed based on distance and stops
-                    rightspeed = dis * 8
+                    leftspeed = 10
                     ms.VariableSpeed(leftspeed,rightspeed)
                     ms.stop()
                     dis = RS.measureDistance()
@@ -77,7 +78,7 @@ def followwall():
             else:
                 while dis > 30 and pob.readbutton() != 1:
                     # Adjusts the left motor speed based on distance and stops
-                    ms.VariableSpeed(40,20)
+                    ms.VariableSpeed(40,10)
                     dis = RS.measureDistance()
 
 # tænder sensoren

@@ -47,7 +47,7 @@ def Sumo():
         b = 0
         # measures distance to obstacle
         distance = S.measureDistance()
-        while b < 15 and B.button != 1:
+        while b < 15 and B.readbutton != 1:
             # Continuously measure distance to adjust movement
             distance = S.measureDistance()
             if distance < 93:

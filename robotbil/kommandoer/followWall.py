@@ -60,7 +60,7 @@ def followwall():
                 ms.stop()
             #it has met a wall
             else:
-                while dis < 20:
+                while dis < 20 and pob.readbutton() != 1:
                     # Adjusts the right motor speed based on distance and stops
                     rightspeed = dis * 0.7
                     ms.VariableSpeed(leftspeed,rightspeed)
@@ -75,7 +75,7 @@ def followwall():
                 ms.stop()
             #it has dropped off a cliff
             else:
-                while dis > 30:
+                while dis > 30 and pob.readbutton() != 1:
                     # Adjusts the left motor speed based on distance and stops
                     ms.VariableSpeed(4,2)
                     dis = RS.measureDistance()

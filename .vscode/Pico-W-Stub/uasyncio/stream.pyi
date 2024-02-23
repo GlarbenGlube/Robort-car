@@ -1,56 +1,67 @@
-from _typeshed import Incomplete as Incomplete
+"""
+Module: 'uasyncio.stream' on micropython-v1.22.1-rp2-RPI_PICO_W
+"""
+# MCU: {'family': 'micropython', 'version': '1.22.1', 'build': '', 'ver': '1.22.1', 'port': 'rp2', 'board': 'RPI_PICO_W', 'cpu': 'RP2040', 'mpy': 'v6.2', 'arch': 'armv6m'}
+# Stubber: v1.17.1
+from __future__ import annotations
+from typing import Generator
+from _typeshed import Incomplete
 
-stream_awrite: Incomplete
+stream_awrite: Generator  ## = <generator>
+open_connection: Generator  ## = <generator>
+start_server: Generator  ## = <generator>
 
 class StreamWriter:
-    def get_extra_info(self, *args, **kwargs) -> Incomplete: ...
     def write(self, *args, **kwargs) -> Incomplete: ...
+    def get_extra_info(self, *args, **kwargs) -> Incomplete: ...
     def close(self, *args, **kwargs) -> Incomplete: ...
-    awrite: Incomplete
-    readexactly: Incomplete
-    awritestr: Incomplete
-    drain: Incomplete
-    readinto: Incomplete
-    read: Incomplete
-    aclose: Incomplete
-    readline: Incomplete
-    wait_closed: Incomplete
-    def __init__(self, *argv, **kwargs) -> None: ...
 
-class Stream:
-    def get_extra_info(self, *args, **kwargs) -> Incomplete: ...
-    def write(self, *args, **kwargs) -> Incomplete: ...
-    def close(self, *args, **kwargs) -> Incomplete: ...
-    awrite: Incomplete
-    readexactly: Incomplete
-    awritestr: Incomplete
-    drain: Incomplete
-    readinto: Incomplete
-    read: Incomplete
-    aclose: Incomplete
-    readline: Incomplete
-    wait_closed: Incomplete
+    awritestr: Generator  ## = <generator>
+    wait_closed: Generator  ## = <generator>
+    drain: Generator  ## = <generator>
+    readexactly: Generator  ## = <generator>
+    readinto: Generator  ## = <generator>
+    read: Generator  ## = <generator>
+    awrite: Generator  ## = <generator>
+    readline: Generator  ## = <generator>
+    aclose: Generator  ## = <generator>
     def __init__(self, *argv, **kwargs) -> None: ...
 
 class Server:
     def close(self, *args, **kwargs) -> Incomplete: ...
-    wait_closed: Incomplete
+
+    wait_closed: Generator  ## = <generator>
+    _serve: Generator  ## = <generator>
+    def __init__(self, *argv, **kwargs) -> None: ...
+
+class Stream:
+    def write(self, *args, **kwargs) -> Incomplete: ...
+    def get_extra_info(self, *args, **kwargs) -> Incomplete: ...
+    def close(self, *args, **kwargs) -> Incomplete: ...
+
+    awritestr: Generator  ## = <generator>
+    wait_closed: Generator  ## = <generator>
+    drain: Generator  ## = <generator>
+    readexactly: Generator  ## = <generator>
+    readinto: Generator  ## = <generator>
+    read: Generator  ## = <generator>
+    awrite: Generator  ## = <generator>
+    readline: Generator  ## = <generator>
+    aclose: Generator  ## = <generator>
     def __init__(self, *argv, **kwargs) -> None: ...
 
 class StreamReader:
-    def get_extra_info(self, *args, **kwargs) -> Incomplete: ...
     def write(self, *args, **kwargs) -> Incomplete: ...
+    def get_extra_info(self, *args, **kwargs) -> Incomplete: ...
     def close(self, *args, **kwargs) -> Incomplete: ...
-    awrite: Incomplete
-    readexactly: Incomplete
-    awritestr: Incomplete
-    drain: Incomplete
-    readinto: Incomplete
-    read: Incomplete
-    aclose: Incomplete
-    readline: Incomplete
-    wait_closed: Incomplete
-    def __init__(self, *argv, **kwargs) -> None: ...
 
-open_connection: Incomplete
-start_server: Incomplete
+    awritestr: Generator  ## = <generator>
+    wait_closed: Generator  ## = <generator>
+    drain: Generator  ## = <generator>
+    readexactly: Generator  ## = <generator>
+    readinto: Generator  ## = <generator>
+    read: Generator  ## = <generator>
+    awrite: Generator  ## = <generator>
+    readline: Generator  ## = <generator>
+    aclose: Generator  ## = <generator>
+    def __init__(self, *argv, **kwargs) -> None: ...

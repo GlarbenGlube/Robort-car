@@ -1,7 +1,7 @@
 """
 Pack and unpack primitive data types.
 
-MicroPython module: https://docs.micropython.org/en/v1.21.0/library/struct.html
+MicroPython module: https://docs.micropython.org/en/v1.22.1/library/struct.html
 
 CPython module: :mod:`python:struct` https://docs.python.org/3/library/struct.html .
 
@@ -52,8 +52,14 @@ The following data types are supported:
 +--------+--------------------+-------------------+---------------+
 | P      | void *             | integer           |               |
 +--------+--------------------+-------------------+---------------+
+
+---
+Module: 'struct' on micropython-v1.22.1-rp2-RPI_PICO_W
 """
-from _typeshed import Incomplete, Incomplete as Incomplete
+# MCU: {'family': 'micropython', 'version': '1.22.1', 'build': '', 'ver': '1.22.1', 'port': 'rp2', 'board': 'RPI_PICO_W', 'cpu': 'RP2040', 'mpy': 'v6.2', 'arch': 'armv6m'}
+# Stubber: v1.17.1
+from __future__ import annotations
+from _typeshed import Incomplete
 from typing import Tuple
 
 def pack_into(fmt, buffer, offset, v1, *args, **kwargs) -> Incomplete:

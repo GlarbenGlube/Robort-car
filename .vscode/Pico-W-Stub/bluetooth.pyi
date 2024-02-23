@@ -1,7 +1,7 @@
 """
 Low-level Bluetooth radio functionality.
 
-MicroPython module: https://docs.micropython.org/en/v1.21.0/library/bluetooth.html
+MicroPython module: https://docs.micropython.org/en/v1.22.1/library/bluetooth.html
 
 This module provides an interface to a Bluetooth controller on a board.
 Currently this supports Bluetooth Low Energy (BLE) in Central, Peripheral,
@@ -17,15 +17,21 @@ building-blocks for higher-level abstractions such as specific device types.
 
 ``Note:`` This module is still under development and its classes, functions,
           methods and constants are subject to change.
+
+---
+Module: 'bluetooth' on micropython-v1.22.1-rp2-RPI_PICO_W
 """
-from _typeshed import Incomplete, Incomplete as Incomplete
+# MCU: {'family': 'micropython', 'version': '1.22.1', 'build': '', 'ver': '1.22.1', 'port': 'rp2', 'board': 'RPI_PICO_W', 'cpu': 'RP2040', 'mpy': 'v6.2', 'arch': 'armv6m'}
+# Stubber: v1.17.1
+from __future__ import annotations
+from _typeshed import Incomplete
 from typing import Any, Optional, Tuple
 
-FLAG_NOTIFY: int
-FLAG_READ: int
-FLAG_WRITE: int
-FLAG_INDICATE: int
-FLAG_WRITE_NO_RESPONSE: int
+FLAG_NOTIFY: int = 16
+FLAG_READ: int = 2
+FLAG_WRITE: int = 8
+FLAG_INDICATE: int = 32
+FLAG_WRITE_NO_RESPONSE: int = 4
 
 class UUID:
     """
@@ -37,7 +43,7 @@ class UUID:
     - A 128-bit UUID string. e.g. ``'6E400001-B5A3-F393-E0A9-E50E24DCCA9E'``.
     """
 
-    def __init__(self, value, /) -> None: ...
+    def __init__(self, *argv, **kwargs) -> None: ...
 
 class BLE:
     """
@@ -589,4 +595,4 @@ class BLE:
         explicitly stopped), the ``_IRQ_SCAN_DONE`` event will be raised.
         """
         ...
-    def __init__(self) -> None: ...
+    def __init__(self, *argv, **kwargs) -> None: ...

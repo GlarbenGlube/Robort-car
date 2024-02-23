@@ -1,7 +1,7 @@
 """
 Mathematical functions for complex numbers.
 
-MicroPython module: https://docs.micropython.org/en/v1.21.0/library/cmath.html
+MicroPython module: https://docs.micropython.org/en/v1.22.1/library/cmath.html
 
 CPython module: :mod:`python:cmath` https://docs.python.org/3/library/cmath.html .
 
@@ -10,12 +10,18 @@ working with complex numbers.
 
 Availability: not available on WiPy and ESP8266. Floating point support
 required for this module.
+
+---
+Module: 'cmath' on micropython-v1.22.1-rp2-RPI_PICO_W
 """
-from _typeshed import Incomplete, Incomplete as Incomplete
+# MCU: {'family': 'micropython', 'version': '1.22.1', 'build': '', 'ver': '1.22.1', 'port': 'rp2', 'board': 'RPI_PICO_W', 'cpu': 'RP2040', 'mpy': 'v6.2', 'arch': 'armv6m'}
+# Stubber: v1.17.1
+from __future__ import annotations
+from _typeshed import Incomplete
 from typing import Tuple
 
-e: float
-pi: float
+e: float = 2.718282
+pi: float = 3.141593
 
 def polar(z) -> Tuple:
     """

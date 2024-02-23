@@ -1,20 +1,26 @@
 """
 Wait for events on a set of streams.
 
-MicroPython module: https://docs.micropython.org/en/v1.21.0/library/select.html
+MicroPython module: https://docs.micropython.org/en/v1.22.1/library/select.html
 
 CPython module: :mod:`python:select` https://docs.python.org/3/library/select.html .
 
 This module provides functions to efficiently wait for events on multiple
 `streams <stream>` (select streams which are ready for operations).
+
+---
+Module: 'uselect' on micropython-v1.22.1-rp2-RPI_PICO_W
 """
-from _typeshed import Incomplete, Incomplete as Incomplete
+# MCU: {'family': 'micropython', 'version': '1.22.1', 'build': '', 'ver': '1.22.1', 'port': 'rp2', 'board': 'RPI_PICO_W', 'cpu': 'RP2040', 'mpy': 'v6.2', 'arch': 'armv6m'}
+# Stubber: v1.17.1
+from __future__ import annotations
+from _typeshed import Incomplete
 from typing import Any, Iterator, List, Optional, Tuple
 
-POLLOUT: int
-POLLIN: int
-POLLHUP: int
-POLLERR: int
+POLLOUT: int = 4
+POLLIN: int = 1
+POLLHUP: int = 16
+POLLERR: int = 8
 
 def select(rlist, wlist, xlist, timeout: Optional[Any] = None) -> None:
     """

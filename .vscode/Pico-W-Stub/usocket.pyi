@@ -1,7 +1,7 @@
 """
 Socket module.
 
-MicroPython module: https://docs.micropython.org/en/v1.21.0/library/socket.html
+MicroPython module: https://docs.micropython.org/en/v1.22.1/library/socket.html
 
 CPython module: :mod:`python:socket` https://docs.python.org/3/library/socket.html .
 
@@ -59,22 +59,28 @@ Tuple address format for ``socket`` module:
   addresses. Note the domain names are not accepted as *ipv6_address*,
   they should be resolved first using `socket.getaddrinfo()`. Availability
   of IPv6 support depends on a :term:`MicroPython port`.
+
+---
+Module: 'usocket' on micropython-v1.22.1-rp2-RPI_PICO_W
 """
-from _typeshed import Incomplete, Incomplete as Incomplete
+# MCU: {'family': 'micropython', 'version': '1.22.1', 'build': '', 'ver': '1.22.1', 'port': 'rp2', 'board': 'RPI_PICO_W', 'cpu': 'RP2040', 'mpy': 'v6.2', 'arch': 'armv6m'}
+# Stubber: v1.17.1
+from __future__ import annotations
+from _typeshed import Incomplete
 from stdlib.socket import *
 from typing import Any, IO, Optional, Tuple
 
-SOCK_STREAM: int
-SOCK_RAW: int
-SOCK_DGRAM: int
-SOL_SOCKET: int
-SO_BROADCAST: int
-SO_REUSEADDR: int
-AF_INET6: int
-AF_INET: int
-IP_DROP_MEMBERSHIP: int
-IPPROTO_IP: int
-IP_ADD_MEMBERSHIP: int
+SOCK_STREAM: int = 1
+SOCK_RAW: int = 3
+SOCK_DGRAM: int = 2
+SOL_SOCKET: int = 1
+SO_BROADCAST: int = 32
+SO_REUSEADDR: int = 4
+AF_INET6: int = 10
+AF_INET: int = 2
+IP_DROP_MEMBERSHIP: int = 1025
+IPPROTO_IP: int = 0
+IP_ADD_MEMBERSHIP: int = 1024
 
 def reset(*args, **kwargs) -> Incomplete: ...
 def print_pcbs(*args, **kwargs) -> Incomplete: ...
@@ -313,4 +319,4 @@ class socket:
         Return value: number of bytes written.
         """
         ...
-    def __init__(self, af=AF_INET, type=SOCK_STREAM, proto=IPPROTO_TCP, /) -> None: ...
+    def __init__(self, *argv, **kwargs) -> None: ...

@@ -1,15 +1,21 @@
 """
 Efficient arrays of numeric data.
 
-MicroPython module: https://docs.micropython.org/en/v1.21.0/library/array.html
+MicroPython module: https://docs.micropython.org/en/v1.22.1/library/array.html
 
 CPython module: :mod:`python:array` https://docs.python.org/3/library/array.html .
 
 Supported format codes: ``b``, ``B``, ``h``, ``H``, ``i``, ``I``, ``l``,
 ``L``, ``q``, ``Q``, ``f``, ``d`` (the latter 2 depending on the
 floating-point support).
+
+---
+Module: 'array' on micropython-v1.22.1-rp2-RPI_PICO_W
 """
-from _typeshed import Incomplete, Incomplete as Incomplete
+# MCU: {'family': 'micropython', 'version': '1.22.1', 'build': '', 'ver': '1.22.1', 'port': 'rp2', 'board': 'RPI_PICO_W', 'cpu': 'RP2040', 'mpy': 'v6.2', 'arch': 'armv6m'}
+# Stubber: v1.17.1
+from __future__ import annotations
+from _typeshed import Incomplete
 from typing import Any, List, Optional
 
 class array(List):
@@ -30,4 +36,4 @@ class array(List):
         Append new element *val* to the end of array, growing it.
         """
         ...
-    def __init__(self, typecode, iterable: Optional[Any] = None) -> None: ...
+    def __init__(self, *argv, **kwargs) -> None: ...

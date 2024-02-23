@@ -1,14 +1,20 @@
 """
 Binary/ASCII conversions.
 
-MicroPython module: https://docs.micropython.org/en/v1.21.0/library/binascii.html
+MicroPython module: https://docs.micropython.org/en/v1.22.1/library/binascii.html
 
 CPython module: :mod:`python:binascii` https://docs.python.org/3/library/binascii.html .
 
 This module implements conversions between binary data and various
 encodings of it in ASCII form (in both directions).
+
+---
+Module: 'binascii' on micropython-v1.22.1-rp2-RPI_PICO_W
 """
-from _typeshed import Incomplete, Incomplete as Incomplete
+# MCU: {'family': 'micropython', 'version': '1.22.1', 'build': '', 'ver': '1.22.1', 'port': 'rp2', 'board': 'RPI_PICO_W', 'cpu': 'RP2040', 'mpy': 'v6.2', 'arch': 'armv6m'}
+# Stubber: v1.17.1
+from __future__ import annotations
+from _typeshed import Incomplete
 from typing import Any, Optional
 
 def crc32(*args, **kwargs) -> Incomplete: ...

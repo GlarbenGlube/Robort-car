@@ -1,7 +1,7 @@
 """
 Network configuration.
 
-MicroPython module: https://docs.micropython.org/en/v1.21.0/library/network.html
+MicroPython module: https://docs.micropython.org/en/v1.22.1/library/network.html
 
 This module provides network drivers and routing configuration. To use this
 module, a MicroPython variant/build with network capabilities must be installed.
@@ -29,21 +29,33 @@ For example::
     addr = socket.getaddrinfo('micropython.org', 80)[0][-1]
     s = socket.socket()
     s.connect(addr)
-    s.send(b'GET / HTTP/1.1\r\nHost: micropython.org\r\n\r\n')
+    s.send(b'GET / HTTP/1.1
+
+Host: micropython.org
+
+
+
+')
     data = s.recv(1000)
     s.close()
+
+---
+Module: 'network' on micropython-v1.22.1-rp2-RPI_PICO_W
 """
-from _typeshed import Incomplete, Incomplete as Incomplete
+# MCU: {'family': 'micropython', 'version': '1.22.1', 'build': '', 'ver': '1.22.1', 'port': 'rp2', 'board': 'RPI_PICO_W', 'cpu': 'RP2040', 'mpy': 'v6.2', 'arch': 'armv6m'}
+# Stubber: v1.17.1
+from __future__ import annotations
+from _typeshed import Incomplete
 from typing import Any, List, Optional, Tuple, Union
 
-STA_IF: int
-STAT_IDLE: int
-STAT_NO_AP_FOUND: int
-STAT_WRONG_PASSWORD: int
-STAT_GOT_IP: int
-AP_IF: int
-STAT_CONNECTING: int
-STAT_CONNECT_FAIL: int
+STA_IF: int = 0
+STAT_IDLE: int = 0
+STAT_NO_AP_FOUND: int = -2
+STAT_WRONG_PASSWORD: int = -3
+STAT_GOT_IP: int = 3
+AP_IF: int = 1
+STAT_CONNECTING: int = 1
+STAT_CONNECT_FAIL: int = -1
 
 def route(*args, **kwargs) -> Incomplete: ...
 def hostname(*args, **kwargs) -> Incomplete: ...
@@ -58,9 +70,9 @@ class WLAN:
     For example, only STA interface may `WLAN.connect()` to an access point.
     """
 
-    PM_PERFORMANCE: int
-    PM_POWERSAVE: int
-    PM_NONE: int
+    PM_PERFORMANCE: int = 10555714
+    PM_POWERSAVE: int = 17
+    PM_NONE: int = 16
     def isconnected(self) -> bool:
         """
         In case of STA mode, returns ``True`` if connected to a WiFi access
@@ -181,4 +193,4 @@ class WLAN:
         """
         ...
     def deinit(self, *args, **kwargs) -> Incomplete: ...
-    def __init__(self, interface_id) -> None: ...
+    def __init__(self, *argv, **kwargs) -> None: ...

@@ -1,7 +1,7 @@
 """
 Time related functions.
 
-MicroPython module: https://docs.micropython.org/en/v1.21.0/library/time.html
+MicroPython module: https://docs.micropython.org/en/v1.22.1/library/time.html
 
 CPython module: :mod:`python:time` https://docs.python.org/3/library/time.html .
 
@@ -31,8 +31,14 @@ by following means:
 If actual calendar time is not maintained with a system/MicroPython RTC,
 functions below which require reference to current absolute time may
 behave not as expected.
+
+---
+Module: 'time' on micropython-v1.22.1-rp2-RPI_PICO_W
 """
-from _typeshed import Incomplete, Incomplete as Incomplete
+# MCU: {'family': 'micropython', 'version': '1.22.1', 'build': '', 'ver': '1.22.1', 'port': 'rp2', 'board': 'RPI_PICO_W', 'cpu': 'RP2040', 'mpy': 'v6.2', 'arch': 'armv6m'}
+# Stubber: v1.17.1
+from __future__ import annotations
+from _typeshed import Incomplete
 from typing import Any, Optional, Tuple
 
 def ticks_diff(ticks1, ticks2) -> int:

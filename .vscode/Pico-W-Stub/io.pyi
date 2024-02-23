@@ -1,7 +1,7 @@
 """
 Input/output streams.
 
-MicroPython module: https://docs.micropython.org/en/v1.21.0/library/io.html
+MicroPython module: https://docs.micropython.org/en/v1.22.1/library/io.html
 
 CPython module: :mod:`python:io` https://docs.python.org/3/library/io.html .
 
@@ -71,8 +71,14 @@ for which we may introduce buffering support.)
 Note that for efficiency, MicroPython doesn't provide abstract base
 classes corresponding to the hierarchy above, and it's not possible
 to implement, or subclass, a stream class in pure Python.
+
+---
+Module: 'io' on micropython-v1.22.1-rp2-RPI_PICO_W
 """
-from _typeshed import Incomplete, Incomplete as Incomplete
+# MCU: {'family': 'micropython', 'version': '1.22.1', 'build': '', 'ver': '1.22.1', 'port': 'rp2', 'board': 'RPI_PICO_W', 'cpu': 'RP2040', 'mpy': 'v6.2', 'arch': 'armv6m'}
+# Stubber: v1.17.1
+from __future__ import annotations
+from _typeshed import Incomplete
 from stdlib.io import *
 from typing import Any, IO, Optional
 
@@ -97,7 +103,7 @@ class StringIO(IO):
     def close(self, *args, **kwargs) -> Incomplete: ...
     def read(self, *args, **kwargs) -> Incomplete: ...
     def readinto(self, *args, **kwargs) -> Incomplete: ...
-    def __init__(self, string: Optional[Any] = None) -> None: ...
+    def __init__(self, *argv, **kwargs) -> None: ...
 
 class BytesIO(IO):
     """
@@ -125,4 +131,4 @@ class BytesIO(IO):
     def close(self, *args, **kwargs) -> Incomplete: ...
     def read(self, *args, **kwargs) -> Incomplete: ...
     def readinto(self, *args, **kwargs) -> Incomplete: ...
-    def __init__(self, string: Optional[Any] = None) -> None: ...
+    def __init__(self, *argv, **kwargs) -> None: ...

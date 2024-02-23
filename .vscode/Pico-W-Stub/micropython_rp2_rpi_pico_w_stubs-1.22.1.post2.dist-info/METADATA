@@ -1,14 +1,15 @@
 Metadata-Version: 2.1
 Name: micropython-rp2-rpi_pico_w-stubs
-Version: 1.21.0.post3
+Version: 1.22.1.post2
 Summary: MicroPython stubs
 Home-page: https://github.com/josverl/micropython-stubs#micropython-stubs
 License: MIT
 Author: josverl
 Author-email: josverl@users.noreply.github.com
 Requires-Python: >=3.8,<4.0
-Classifier: Development Status :: 4 - Beta
+Classifier: Development Status :: 5 - Production/Stable
 Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
 Classifier: Operating System :: OS Independent
 Classifier: Programming Language :: Python
 Classifier: Programming Language :: Python :: 3
@@ -18,10 +19,12 @@ Classifier: Programming Language :: Python :: 3.10
 Classifier: Programming Language :: Python :: 3.11
 Classifier: Programming Language :: Python :: 3 :: Only
 Classifier: Programming Language :: Python :: Implementation :: MicroPython
-Classifier: Topic :: Software Development :: Build Tools
+Classifier: Topic :: Software Development :: Documentation
+Classifier: Topic :: Software Development :: Embedded Systems
+Classifier: Topic :: Software Development :: Testing
 Classifier: Topic :: Text Editors :: Integrated Development Environments (IDE)
-Classifier: Typing :: Typed
-Requires-Dist: micropython-stdlib-stubs (>=1.1.0)
+Classifier: Typing :: Stubs Only
+Requires-Dist: micropython-stdlib-stubs (>=1.1.1)
 Project-URL: Documentation, https://micropython-stubs.readthedocs.io/
 Project-URL: Repository, https://github.com/josverl/micropython-stubs
 Description-Content-Type: text/markdown
@@ -55,13 +58,13 @@ For an overview of  Micropython Stubs please see: https://micropython-stubs.read
  * List of all stubs : https://micropython-stubs.readthedocs.io/en/main/firmware_grp.html
 
 Included stubs:
-* Merged stubs from `stubs/micropython-v1_21_0-rp2-RPI_PICO_W-merged`
-* Frozen stubs from `stubs/micropython-v1_21_0-frozen/rp2/RPI_PICO_W`
+* Merged stubs from `stubs/micropython-v1_22_1-rp2-RPI_PICO_W-merged`
+* Frozen stubs from `stubs/micropython-v1_22_1-frozen/rp2/RPI_PICO_W`
 * Core stubs from `stubs/micropython-core`
 
 
 origin | Family | Port | Board | Version
 -------|--------|------|-------|--------
-Documentation | micropython | - | - | v1.21.0 
-Core | micropython | rp2 | - | v1.21.0 
+Documentation | micropython | - | - | v1.22.1 
+Core | micropython | rp2 | - | v1.22.1 
 

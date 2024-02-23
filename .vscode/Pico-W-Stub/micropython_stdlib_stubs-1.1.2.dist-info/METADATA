@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: micropython-stdlib-stubs
-Version: 1.1.1
+Version: 1.1.2
 Summary: Micropython stdlib is a reduced and augmented copy of typeshed's stdlib for use by MicroPython stub packages
 Home-page: https://github.com/josverl/micropython-stubs#micropython-stubs
 License: MIT

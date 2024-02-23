@@ -1,7 +1,7 @@
 """
 Deflate compression & decompression.
 
-MicroPython module: https://docs.micropython.org/en/v1.21.0/library/deflate.html
+MicroPython module: https://docs.micropython.org/en/v1.22.1/library/deflate.html
 
 This module allows compression and decompression of binary data with the
 `DEFLATE algorithm <https://en.wikipedia.org/wiki/DEFLATE>`_
@@ -17,13 +17,19 @@ This module allows compression and decompression of binary data with the
 * Compression: Enabled via the ``MICROPY_PY_DEFLATE_COMPRESS`` build option, on
   by default on ports with the "full features" level or higher (generally this means
   you need to build your own firmware to enable this).
-"""
-from _typeshed import Incomplete, Incomplete as Incomplete
 
-GZIP: int
-RAW: int
-ZLIB: int
-AUTO: int
+---
+Module: 'deflate' on micropython-v1.22.1-rp2-RPI_PICO_W
+"""
+# MCU: {'family': 'micropython', 'version': '1.22.1', 'build': '', 'ver': '1.22.1', 'port': 'rp2', 'board': 'RPI_PICO_W', 'cpu': 'RP2040', 'mpy': 'v6.2', 'arch': 'armv6m'}
+# Stubber: v1.17.1
+from __future__ import annotations
+from _typeshed import Incomplete
+
+GZIP: int = 3
+RAW: int = 1
+ZLIB: int = 2
+AUTO: int = 0
 
 class DeflateIO:
     """
@@ -73,4 +79,4 @@ class DeflateIO:
     def readinto(self, *args, **kwargs) -> Incomplete: ...
     def read(self, *args, **kwargs) -> Incomplete: ...
     def close(self, *args, **kwargs) -> Incomplete: ...
-    def __init__(self, stream, format=AUTO, wbits=0, close=False, /) -> None: ...
+    def __init__(self, *argv, **kwargs) -> None: ...

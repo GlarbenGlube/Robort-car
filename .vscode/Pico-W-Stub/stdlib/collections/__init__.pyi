@@ -1,7 +1,7 @@
 """
 Collection and container types.
 
-MicroPython module: https://docs.micropython.org/en/v1.21.0/library/collections.html
+MicroPython module: https://docs.micropython.org/en/v1.22.0/library/collections.html
 
 CPython module: :mod:`python:collections` https://docs.python.org/3/library/collections.html .
 
@@ -11,9 +11,9 @@ hold/accumulate various objects.
 import sys
 from _collections_abc import dict_items, dict_keys, dict_values
 from _typeshed import Incomplete, SupportsItems, SupportsKeysAndGetItem, SupportsRichComparison, SupportsRichComparisonT
-from typing import Optional, Any, Generic, NoReturn, TypeVar, overload
-from typing_extensions import NamedTuple as stdlib_NamedTuple, Self, SupportsIndex, final
-from stdlib.collections import OrderedDict as stdlib_OrderedDict, deque as stdlib_deque
+from typing import Any, Generic, NoReturn, TypeVar, overload
+from typing_extensions import Self, SupportsIndex, final
+from stdlib.collections import OrderedDict as stdlib_OrderedDict, deque as stdlib_deque, namedtuple as stdlib_namedtuple
 
 if sys.version_info >= (3, 9):
     from types import GenericAlias
@@ -35,7 +35,7 @@ if sys.version_info >= (3, 10):
 else:
     from _collections_abc import *
 
-__all__ = ['OrderedDict', 'defaultdict', 'deque', 'namedtuple']
+__all__ = ["OrderedDict", "defaultdict", "deque", "namedtuple"]
 
 _S = TypeVar("_S")
 _T = TypeVar("_T")

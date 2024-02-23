@@ -1,7 +1,7 @@
 """
 Hashing algorithms.
 
-MicroPython module: https://docs.micropython.org/en/v1.21.0/library/hashlib.html
+MicroPython module: https://docs.micropython.org/en/v1.22.1/library/hashlib.html
 
 CPython module: :mod:`python:hashlib` https://docs.python.org/3/library/hashlib.html .
 
@@ -22,8 +22,14 @@ be implemented:
 * MD5 - A legacy algorithm, not considered cryptographically secure. Only
   selected boards, targeting interoperability with legacy applications,
   will offer this.
+
+---
+Module: 'uhashlib' on micropython-v1.22.1-rp2-RPI_PICO_W
 """
-from _typeshed import Incomplete, Incomplete as Incomplete
+# MCU: {'family': 'micropython', 'version': '1.22.1', 'build': '', 'ver': '1.22.1', 'port': 'rp2', 'board': 'RPI_PICO_W', 'cpu': 'RP2040', 'mpy': 'v6.2', 'arch': 'armv6m'}
+# Stubber: v1.17.1
+from __future__ import annotations
+from _typeshed import Incomplete
 from typing import Any, Optional
 
 class sha256:
@@ -33,7 +39,7 @@ class sha256:
 
     def digest(self, *args, **kwargs) -> Incomplete: ...
     def update(self, *args, **kwargs) -> Incomplete: ...
-    def __init__(self, data: Optional[Any] = None) -> None: ...
+    def __init__(self, *argv, **kwargs) -> None: ...
 
 class sha1:
     """
@@ -42,4 +48,4 @@ class sha1:
 
     def digest(self, *args, **kwargs) -> Incomplete: ...
     def update(self, *args, **kwargs) -> Incomplete: ...
-    def __init__(self, data: Optional[Any] = None) -> None: ...
+    def __init__(self, *argv, **kwargs) -> None: ...

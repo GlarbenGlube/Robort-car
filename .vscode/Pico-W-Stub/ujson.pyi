@@ -1,14 +1,20 @@
 """
 JSON encoding and decoding.
 
-MicroPython module: https://docs.micropython.org/en/v1.21.0/library/json.html
+MicroPython module: https://docs.micropython.org/en/v1.22.1/library/json.html
 
 CPython module: :mod:`python:json` https://docs.python.org/3/library/json.html .
 
 This modules allows to convert between Python objects and the JSON
 data format.
+
+---
+Module: 'ujson' on micropython-v1.22.1-rp2-RPI_PICO_W
 """
-from _typeshed import Incomplete, Incomplete as Incomplete
+# MCU: {'family': 'micropython', 'version': '1.22.1', 'build': '', 'ver': '1.22.1', 'port': 'rp2', 'board': 'RPI_PICO_W', 'cpu': 'RP2040', 'mpy': 'v6.2', 'arch': 'armv6m'}
+# Stubber: v1.17.1
+from __future__ import annotations
+from _typeshed import Incomplete
 
 def loads(str) -> Incomplete:
     """

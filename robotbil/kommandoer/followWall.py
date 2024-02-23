@@ -54,7 +54,7 @@ def followwall():
         if dis < 20:
             #checks if we have a case of a small dent
             if dis > 10:
-                rightspeed = dis * 0.5
+                rightspeed = 40
                 ms.VariableSpeed(leftspeed,rightspeed)
                 ms.forward()
                 ms.stop()
@@ -62,7 +62,7 @@ def followwall():
             else:
                 while dis < 20 and pob.readbutton() != 1:
                     # Adjusts the right motor speed based on distance and stops
-                    rightspeed = dis * 0.7
+                    rightspeed = dis * 8
                     ms.VariableSpeed(leftspeed,rightspeed)
                     ms.stop()
                     dis = RS.measureDistance()
@@ -70,14 +70,14 @@ def followwall():
         else:
             #is it still within acceptable distances for a bump
             if dis < 40:
-                ms.VariableSpeed(4,3)
+                ms.VariableSpeed(40,30)
                 ms.forward()
                 ms.stop()
             #it has dropped off a cliff
             else:
                 while dis > 30 and pob.readbutton() != 1:
                     # Adjusts the left motor speed based on distance and stops
-                    ms.VariableSpeed(4,2)
+                    ms.VariableSpeed(40,20)
                     dis = RS.measureDistance()
 
 # tænder sensoren

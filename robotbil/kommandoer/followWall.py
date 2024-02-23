@@ -51,6 +51,7 @@ def followwall():
             ms.UpdatePWM(0.4, 0.4)
             ms.VariableSpeed(40, 40)
             dis = RS.measureDistance()
+            print("life is a highway")
         #it is no longer within limits. it now checks which limit it broke
         if dis < 20:
             #checks if we have a case of a small dent
@@ -58,6 +59,7 @@ def followwall():
                 leftspeed = 20
                 ms.VariableSpeed(leftspeed,rightspeed)
                 ms.forward()
+                print("bump")
             #it has met a wall
             else:
                 while dis < 20 and pob.readbutton() != 1:
@@ -66,18 +68,21 @@ def followwall():
                     rightspeed = 40
                     ms.VariableSpeed(leftspeed,rightspeed)
                     dis = RS.measureDistance()
+                    print("wall")
         #it broke limit for far away
         else:
             #is it still within acceptable distances for a bump
             if dis < 40:
                 ms.VariableSpeed(40,30)
                 ms.forward()
+                print("hole")
             #it has dropped off a cliff
             else:
                 while dis > 30 and pob.readbutton() != 1:
                     # Adjusts the left motor speed based on distance and stops
                     ms.VariableSpeed(40,10)
                     dis = RS.measureDistance()
+                    print("cliff")
 
 # tænder sensoren
 # læser afstanden

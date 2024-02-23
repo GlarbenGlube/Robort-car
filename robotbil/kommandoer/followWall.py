@@ -64,6 +64,7 @@ def followwall():
                 while dis < 20 and pob.readbutton() != 1:
                     # Adjusts the right motor speed based on distance and stops
                     leftspeed = 10
+                    rightspeed = 40
                     ms.VariableSpeed(leftspeed,rightspeed)
                     ms.stop()
                     dis = RS.measureDistance()

@@ -34,64 +34,48 @@ def followwall():
     rightspeed = 0
 
     counter = 0
+    # Sets the speed of the motors
+    ms.UpdatePWM(0.4, 0.4)
+
+    # Prints "start" message
+    print("start")
+
+    # Measures the distance from the wall
+
     # Checks if button is pressed
-    while pob.readbutton() != "ON":
-        # Sets the speed of the motors
-        ms.UpdatePWM(0.4,0.4)
-
-        # Prints "start" message
-        print("start")
-
-        # Measures the distance from the wall
+    while pob.readbutton() != 1:
         dis = RS.measureDistance()
+        while pob.readbutton() != 1 and dis <= 30 and dis >= 20:
+            ms.forward()
+            ms.UpdatePWM(0.4, 0.4)
+            dis = RS.measureDistance()
 
+        if dis < 20:
+            if dis > 10:
+                rightspeed = dis * 0.5
+                ms.VariableSpeed(leftspeed,rightspeed)
+                ms.forward()
+                ms.stop()
+            else:
+                while dis < 20
+                    # Adjusts the right motor speed based on distance and stops
+                    rightspeed = dis * 0.7
+                    ms.VariableSpeed(leftspeed,rightspeed)
+                    ms.stop()
+                    dis = RS.measureDistance()
         # If the measured distance is greater than 100
-        if dis > 30:
-            # If the distance is greater than 100 and less than 150
-            if dis > 30 and dis < 40:
-                # Adjusts the left motor speed based on distance and moves forward
-                leftspeed = dis * 0.5
-                ms.VariableSpeed(leftspeed,rightspeed)
-                ms.forward()
-                sleep(1)
-                ms.stop()
-                counter = 0
-            else:
-                # Adjusts the left motor speed based on distance and stops
-                ms.VariableSpeed(leftspeed,rightspeed)
-                sleep(1)
-                ms.stop()
-                counter += 1
-                if counter == 3:
-                    leftspeed = dis * 0.5
-                    ms.VariableSpeed(leftspeed,rightspeed)
-                    sleep(3)
-                    ms.stop()
-                    counter = 0
-                    # If the measured distance is less than 100
         else:
-
-            # If the distance is less than 100 and greater than 50
-            if dis < 20 and dis > 10:
-                # Adjusts the right motor speed based on distance and moves forward
-                rightspeed = dis * 0.5
-                ms.VariableSpeed(leftspeed,rightspeed)
+            # If the distance is greater than 100 and less than 150
+            if dis < 40:
+                ms.VariableSpeed(4,3)
                 ms.forward()
-                sleep(1)
                 ms.stop()
             else:
-                # Adjusts the right motor speed based on distance and stops
-                rightspeed = dis * 0.5
-                ms.VariableSpeed(leftspeed,rightspeed)
-                sleep(1)
-                ms.stop()
-                counter += 1
-                if counter == 3:
-                    rightspeed = dis * 0.5
-                    ms.VariableSpeed(leftspeed,rightspeed)
-                    sleep(3)
-                    ms.stop()
-                    counter = 0
+                while dis > 30:
+                    # Adjusts the left motor speed based on distance and stops
+                    ms.VariableSpeed(4,2)
+                    dis = RS.measureDistance()
+
 # tænder sensoren
 # læser afstanden
 # gør noget afhængig af afstand. hvis den er mindre end grænseværdien drej til venstre og ret op hvis den er større end grænseværdien drej til venstre

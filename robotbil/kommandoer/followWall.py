@@ -46,7 +46,7 @@ def followwall():
     while pob.readbutton() != 1:
         dis = RS.measureDistance()
         #while within distance limits it drives forward
-        while pob.readbutton() != 1 and dis <= 30 and dis >= 20:
+        while dis <= 30 and dis >= 20 and pob.readbutton() != 1:
             ms.forward()
             ms.UpdatePWM(0.4, 0.4)
             ms.VariableSpeed(40, 40)

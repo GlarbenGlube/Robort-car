@@ -66,7 +66,6 @@ def followwall():
                     leftspeed = 10
                     rightspeed = 40
                     ms.VariableSpeed(leftspeed,rightspeed)
-                    ms.stop()
                     dis = RS.measureDistance()
         #it broke limit for far away
         else:

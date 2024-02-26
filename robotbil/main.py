@@ -115,3 +115,5 @@ while True:
                     receivermode = 1
                 else:    
                     print("Function not found for input: ", received_msg)
+
+                    

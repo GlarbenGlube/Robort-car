@@ -14,9 +14,9 @@ leftBack = Pin(5, Pin.OUT)
 
 # variables to control the speed of the motors
 frequency = 1200
-dutycycleR = .7
+dutycycleR = .72
 offsetR = 0
-dutycycleL = .706
+dutycycleL = .700
 offsetL = 0
 
 def UpdateFreq(freqL,freqR):

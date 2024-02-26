@@ -29,6 +29,6 @@ def UDPRecieve():
     print(f"Listening for UDP messages on {HOST}:{PORT}")
     try: data, addr = sock.recvfrom(1024)
     except: 
-        print("no data received")
+        print("no data recieved")
         return
     return data.decode('utf-8')

@@ -46,44 +46,54 @@ def followwall():
     while pob.readbutton() != 1:
         dis = RS.measureDistance()
         #while within distance limits it drives forward
-        while dis <= 60 and dis >= 50 and pob.readbutton() != 1:
+        if dis <= 70 and dis >= 45 and pob.readbutton() != 1:
             ms.forward()
             ms.UpdatePWM(0.4, 0.4)
-            ms.VariableSpeed(20, 20)
+            ms.VariableSpeed(30, 30)
             dis = RS.measureDistance()
             print("life is a highway")
         #it is no longer within limits. it now checks which limit it broke
-        if dis < 50:
+        elif dis < 45:
             #checks if we have a case of a small bump
-            if dis > 20:
-                leftspeed = 15
+            if dis > 35:
+                leftspeed = 20
+                rightspeed = 50
                 ms.VariableSpeed(leftspeed,rightspeed)
-                ms.forward()
                 print("bump")
             #it has met a wall
             else:
                 while dis < 50 and pob.readbutton() != 1:
                     # Adjusts the right motor speed based on distance and stops
-                    leftspeed = 15
-                    rightspeed = 20
-                    ms.VariableSpeed(leftspeed,rightspeed)
-                    dis = RS.measureDistance()
+                    if dis > 40:
+                        leftspeed = 0
+                        rightspeed = 30
+                        ms.VariableSpeed(leftspeed,rightspeed)
+                        dis = RS.measureDistance()
+                    else:
+                        leftspeed = -25
+                        rightspeed = 25
+                        ms.VariableSpeed(leftspeed,rightspeed)
+                        dis = RS.measureDistance()
                     print("wall")
+                ms.stop()
         #it broke limit for far away
         else:
             #is it still within acceptable distances for a bump
-            if dis < 75:
-                ms.VariableSpeed(20,15)
-                ms.forward()
-                print("hole")
+            #if dis < 90:
+             #   ms.VariableSpeed(30,25)
+              #  ms.forward()
+               # print("hole")
             #it has dropped off a cliffæ
-            else:
-                while dis > 60 and pob.readbutton() != 1:
-                    # Adjusts the left motor speed based on distance and stops
-                    ms.VariableSpeed(20,15)
-                    dis = RS.measureDistance()
-                    print("cliff")
-    ms.stop()
+            count = 30
+            while (dis > 65 or count < 40) and pob.readbutton() != 1:
+                # Adjusts the left motor speed based on distance and stops
+                count += 0.5
+                ms.VariableSpeed(count,20)
+                dis = RS.measureDistance()
+                print("cliff")
+                if count < 60:
+                    count = 59
+            ms.stop()
 # tænder sensoren
 # læser afstanden
 # gør noget afhængig af afstand. hvis den er mindre end grænseværdien drej til venstre og ret op hvis den er større end grænseværdien drej til venstre

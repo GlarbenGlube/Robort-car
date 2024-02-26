@@ -8,6 +8,7 @@ bat = ADC(Pin(27))
 def measureDistance():
     while gy.value == True: pass
     pulsetime = time_pulse_us(22, 1)
+    print(pulsetime/100)
     return pulsetime/100
 
 def measureReflection():

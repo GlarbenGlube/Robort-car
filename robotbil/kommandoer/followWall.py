@@ -76,7 +76,7 @@ def followwall():
                 ms.VariableSpeed(20,15)
                 ms.forward()
                 print("hole")
-            #it has dropped off a cliff
+            #it has dropped off a cliffæ
             else:
                 while dis > 60 and pob.readbutton() != 1:
                     # Adjusts the left motor speed based on distance and stops

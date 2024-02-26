@@ -5,7 +5,7 @@
     "python.analysis.diagnosticSeverityOverrides": {
         "reportMissingModuleSource": "none"
     },
-    "micropico.syncFolder": "",
+    "micropico.syncFolder": "robotbil",
     "micropico.openOnStart": true,
     "python.analysis.typeshedPaths": [
         ".vscode\\Pico-W-Stub"

@@ -1,6 +1,6 @@
 import socket
 
-ip = '10.120.0.202'
+ip = '10.120.0.8'
 # ip = '192.168.137.202'
 port = 5001
 
@@ -29,6 +29,6 @@ def UDPRecieve():
     print(f"Listening for UDP messages on {HOST}:{PORT}")
     try: data, addr = sock.recvfrom(1024)
     except: 
-        print("no data recieved")
+        print("no data received")
         return
     return data.decode('utf-8')

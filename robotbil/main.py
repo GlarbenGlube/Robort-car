@@ -100,10 +100,11 @@ while True:
             message = data.decode()
             if message == 'manual':
                 receivermode = 0
+                motor.UpdatePWM(0.4,0.4)
             else:
                 x, y = map(str, message.split(','))
                 x = int(x)
-                speed = controller(x,y)
+                controller(x,y)
 
         else:
             received_msg = data.decode('utf-8')  # Decode the received bytes to string

@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="1a9df6c4-de6b-40d7-b9ef-a3b627295a0b" name="Changes" comment="kommentar tilføjet til GUI" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;GlarbenGlube&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="b832a995-5fd3-4169-9564-dd27e12677fb" />
+        <option name="url" value="https://github.com/GlarbenGlube/Robort-car.git" />
+      </UrlAndAccount>
+    </option>
+  </component>
+  <component name="MicroPythonDevices" devicePath="COM3" autoDetectDevicePath="false" />
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 7
+}</component>
+  <component name="ProjectId" id="2c28v8jbE0g8W8HzrWF7BGlBKtd" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "settings.editor.selected.configurable": "terminal"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="1a9df6c4-de6b-40d7-b9ef-a3b627295a0b" name="Changes" comment="" />
+      <created>1707298542019</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1707298542019</updated>
+    </task>
+    <task id="LOCAL-00001" summary="quaso">
+      <option name="closed" value="true" />
+      <created>1707299371857</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1707299371857</updated>
+    </task>
+    <task id="LOCAL-00002" summary="amogus">
+      <option name="closed" value="true" />
+      <created>1707301767153</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1707301767153</updated>
+    </task>
+    <task id="LOCAL-00003" summary="get this shit outta here">
+      <option name="closed" value="true" />
+      <created>1707301891751</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1707301891751</updated>
+    </task>
+    <task id="LOCAL-00004" summary="WIP GUI interface">
+      <option name="closed" value="true" />
+      <created>1707380811108</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1707380811108</updated>
+    </task>
+    <task id="LOCAL-00005" summary="WIP GUI interface">
+      <option name="closed" value="true" />
+      <created>1707380930724</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1707380930724</updated>
+    </task>
+    <task id="LOCAL-00006" summary="WIP GUI interface">
+      <option name="closed" value="true" />
+      <created>1707382325870</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1707382325872</updated>
+    </task>
+    <task id="LOCAL-00007" summary="WIP GUI interface 2.0">
+      <option name="closed" value="true" />
+      <created>1707385642521</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1707385642522</updated>
+    </task>
+    <task id="LOCAL-00008" summary="WIP GUI interface 2.0">
+      <option name="closed" value="true" />
+      <created>1707388178255</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1707388178255</updated>
+    </task>
+    <task id="LOCAL-00009" summary="WIP GUI interface&#10;ny Quit knap">
+      <option name="closed" value="true" />
+      <created>1707388880088</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1707388880088</updated>
+    </task>
+    <task id="LOCAL-00010" summary="quaso">
+      <option name="closed" value="true" />
+      <created>1707390895074</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1707390895075</updated>
+    </task>
+    <task id="LOCAL-00011" summary="qua">
+      <option name="closed" value="true" />
+      <created>1707469854601</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1707469854601</updated>
+    </task>
+    <task id="LOCAL-00012" summary="GUI">
+      <option name="closed" value="true" />
+      <created>1707470155222</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1707470155222</updated>
+    </task>
+    <task id="LOCAL-00013" summary="back in main branch?">
+      <option name="closed" value="true" />
+      <created>1707470260843</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1707470260843</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Gui battery update WIP">
+      <option name="closed" value="true" />
+      <created>1707810803541</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1707810803541</updated>
+    </task>
+    <task id="LOCAL-00015" summary="motor fix direction">
+      <option name="closed" value="true" />
+      <created>1707814827595</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1707814827595</updated>
+    </task>
+    <task id="LOCAL-00016" summary="motor left right fix direction">
+      <option name="closed" value="true" />
+      <created>1707815616912</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1707815616912</updated>
+    </task>
+    <task id="LOCAL-00017" summary="battery voltage parentes ændring">
+      <option name="closed" value="true" />
+      <created>1708068620057</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1708068620057</updated>
+    </task>
+    <task id="LOCAL-00018" summary="sumo m.updatePWM ændring">
+      <option name="closed" value="true" />
+      <created>1708080884241</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1708080884241</updated>
+    </task>
+    <task id="LOCAL-00019" summary="sumo m.updatePWM ændring">
+      <option name="closed" value="true" />
+      <created>1708334077349</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1708334077349</updated>
+    </task>
+    <task id="LOCAL-00020" summary="CBT ændret til sumo i sumo.py og kommentar tilføjet til motorstyrring.py">
+      <option name="closed" value="true" />
+      <created>1708334603304</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1708334603304</updated>
+    </task>
+    <task id="LOCAL-00021" summary="kommentar tilføjet til GUI">
+      <option name="closed" value="true" />
+      <created>1708336176580</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1708336176580</updated>
+    </task>
+    <task id="LOCAL-00022" summary="kommentar tilføjet til SUMO">
+      <option name="closed" value="true" />
+      <created>1708336749840</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1708336749840</updated>
+    </task>
+    <task id="LOCAL-00023" summary="kommentar tilføjet til GUI">
+      <option name="closed" value="true" />
+      <created>1708343093353</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1708343093353</updated>
+    </task>
+    <task id="LOCAL-00024" summary="kommentar tilføjet til GUI">
+      <option name="closed" value="true" />
+      <created>1708343317995</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1708343317995</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="amogus" />
+    <MESSAGE value="get this shit outta here" />
+    <MESSAGE value="WIP GUI interface" />
+    <MESSAGE value="WIP GUI interface 2.0" />
+    <MESSAGE value="WIP GUI interface&#10;ny Quit knap" />
+    <MESSAGE value="quaso" />
+    <MESSAGE value="qua" />
+    <MESSAGE value="GUI" />
+    <MESSAGE value="back in main branch?" />
+    <MESSAGE value="Gui battery update WIP" />
+    <MESSAGE value="motor fix direction" />
+    <MESSAGE value="motor left right fix direction" />
+    <MESSAGE value="battery voltage parentes ændring" />
+    <MESSAGE value="sumo m.updatePWM ændring" />
+    <MESSAGE value="CBT ændret til sumo i sumo.py og kommentar tilføjet til motorstyrring.py" />
+    <MESSAGE value="kommentar tilføjet til SUMO" />
+    <MESSAGE value="kommentar tilføjet til GUI" />
+    <option name="LAST_COMMIT_MESSAGE" value="kommentar tilføjet til GUI" />
+  </component>
+</project>

@@ -7,7 +7,7 @@ sg.theme('DarkGrey15')  # setting the theme for GUI
 
 # Dictionary mapping GUI button texts to corresponding commands
 # in other words, it translates the button text into a command the program can execute
-commands = {"Follow Wall":"wallfollow","Push Object": "boxpush", 
+commands = {"Follow Wall":"wallfollow","Push Object": "boxpush",
             "controlOn": "controller", "controlOff": "manual",
             "forwardGo": "forward", "forwardStop": "stop",
             "leftGo": "left", "leftStop": "stop",
@@ -15,7 +15,6 @@ commands = {"Follow Wall":"wallfollow","Push Object": "boxpush",
             "rightGo": "right", "rightStop": "stop",
             "backGo": "backward", "backStop": "stop",
             "Update Battery": "getbattery",
-            "Edging": "edging",
             }
 
 # updates the battery level and current voltage
@@ -94,8 +93,11 @@ def GUI():
                     controller()                        # activating controller
                 elif event == 'Update Battery':
                     try: 
-                        currentPower = Remote.UDPRecieve()  # recieving current power information
-                        batteryLevel = round((float(currentPower)-6.4)/2*100, 2)   # calculating battery power
+                        print("recieve")
+                        currentPower = float(Remote.UDPRecieve())+0.3  # recieving current power information
+                        print("convert")
+                        batteryLevel = round((currentPower-6.4)/2*100, 2)   # calculating battery power
+                        print("update")
                         UpdateBatteryLevel(window, batteryLevel, currentPower)      # updating GUI with battery info
                     except: pass
     

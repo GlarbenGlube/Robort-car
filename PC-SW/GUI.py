@@ -4,10 +4,13 @@ from Controller import readController as controller
 from time import sleep
 import os
 
+# ImageDirectory will get the users current path and is used in layout to make sure every user
+# can see the images
 ImageDirectory = os.getcwd()
 print(ImageDirectory)
 
-sg.theme('DarkGrey15')  # setting the theme for GUI
+ # setting the theme for GUI
+sg.theme('DarkGrey15')
 
 # Dictionary mapping GUI button texts to corresponding commands
 # in other words, it translates the button text into a command the program can execute
@@ -29,22 +32,23 @@ def UpdateBatteryLevel(window, battery_level, current_power):
 
 # function to create and manage the GUI
 def GUI():
-    # defining GUI layout, creating buttons with text of a certain size, font and offset
+    # defining GUI layout, creating buttons with text of a certain size, font, offset and color
+    # also includes images using the ImageDirectory variable
     layout = [
-            [sg.Button(image_filename=ImageDirectory + '\\PC-SW\\images\\ChinaWall.png', size=(12, 2), pad=(10, 50), button_text='Follow Wall', font='Impact'),
-            sg.Button(image_filename=ImageDirectory + '\\PC-SW\\images\\CenaSumo.png', size=(12, 2), pad=(10, 50), button_text='Push Object', font='Impact'),
-            sg.Button(image_filename=ImageDirectory + '\\PC-SW\\images\\ZhongXina.png', size=(12, 2), pad=(10, 50), button_text='Controller', font='Impact', key='control')],
+            [sg.Button(image_filename=ImageDirectory + '\\PC-SW\\images\\ChinaWall.png', size=(12, 2), pad=(10, 50), button_text='Follow Wall', font='Impact', button_color=('white', 'black')),
+            sg.Button(image_filename=ImageDirectory + '\\PC-SW\\images\\CenaSumo.png', size=(12, 2), pad=(10, 50), button_text='Push Object', font='Impact', button_color=('white', 'black')),
+            sg.Button(image_filename=ImageDirectory + '\\PC-SW\\images\\ZhongXina.png', size=(12, 2), pad=(10, 50), button_text='Controller', font='Impact', key='control', button_color=('white', 'black'))],
 
-            [sg.Button('Frem', size=(12, 2), pad=(10, 10), font='Impact', key='forward')],
+            [sg.Button(image_filename=ImageDirectory + '\\PC-SW\\images\\CenaForward.png', size=(12, 2), pad=(10, 10), button_text='Frem', font='Impact', key='forward', button_color=('white', 'black'))],
 
-            [sg.Button('Venstre', size=(12, 2), pad=(10, 10), font='Impact', key='left'),
-            sg.Button('Stop', size=(12, 2), pad=(10, 10), font='Impact'),
-            sg.Button('Højre', size=(12, 2), pad=(10, 10), font='Impact', key='right')],
+            [sg.Button(image_filename=ImageDirectory + '\\PC-SW\\images\\CenaLeft.png', size=(12, 2), pad=(10, 10), button_text='Venstre', font='Impact', key='left', button_color=('white', 'black')),
+            sg.Button(image_filename=ImageDirectory + '\\PC-SW\\images\\CenaStop.png', size=(12, 2), pad=(10, 10), button_text='Stop', font='Impact', button_color=('white', 'black')),
+            sg.Button(image_filename=ImageDirectory + '\\PC-SW\\images\\CenaRight.png', size=(12, 2), pad=(10, 10), button_text='Højre', font='Impact', key='right', button_color=('white', 'black'))],
 
-            [sg.Button('Tilbage', size=(12, 2), pad=(10, 10), font='Impact', key='back')],
+            [sg.Button(image_filename=ImageDirectory + '\\PC-SW\\images\\CenaBack.png', size=(12, 2), pad=(10, 10), button_text='Tilbage', font='Impact', key='back', button_color=('white', 'black'))],
 
-            [sg.Button(image_filename=ImageDirectory + '\\PC-SW\\images\\CenaSalute.png', size=(12, 2), pad=(10, 50), button_text='Quit', font='Impact'),
-            sg.Button(image_filename=ImageDirectory + '\\PC-SW\\images\\BinChillin.png', size=(12, 2), pad=(10, 50), button_text='Update Battery', font='Impact')],
+            [sg.Button(image_filename=ImageDirectory + '\\PC-SW\\images\\CenaSalute.png', size=(12, 2), pad=(10, 50), button_text='Quit', font='Impact', button_color=('white', 'black')),
+            sg.Button(image_filename=ImageDirectory + '\\PC-SW\\images\\BinChillin.png', size=(12, 2), pad=(10, 50), button_text='Update Battery', font='Impact', button_color=('white', 'black'))],
 
             [sg.Text('Battery Level: ', key='BATTERY_LEVEL')],
             [sg.Text('Current Power: ', key='CURRENT_POWER')],

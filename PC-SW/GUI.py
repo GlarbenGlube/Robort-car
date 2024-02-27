@@ -2,6 +2,10 @@ import PySimpleGUI as sg
 import Remote
 from Controller import readController as controller
 from time import sleep
+import os
+
+ImageDirectory = os.getcwd()
+print(ImageDirectory)
 
 sg.theme('DarkGrey15')  # setting the theme for GUI
 
@@ -27,26 +31,26 @@ def UpdateBatteryLevel(window, battery_level, current_power):
 # function to create and manage the GUI
 def GUI():
     # defining GUI layout, creating buttons with text of a certain size, font and offset
-    layout = [[sg.Button('Follow Wall', size=(12, 2), pad=(10, 50), font='Impact'),
-               sg.Button('Push Object', size=(12, 2), pad=(10, 50), font='Impact'),
-               sg.Button('Controller', size=(12, 2), pad=(10, 50), font='Impact', key= 'control'),
-               sg.Button('Edging', size=(12, 2), pad=(10, 50), font='Impact')],
+    layout = [
+            [sg.Button(image_filename=ImageDirectory + '\\PC-SW\\images\\ChinaWall.png', size=(12, 2), pad=(10, 50), button_text='Follow Wall', font='Impact'),
+            sg.Button(image_filename=ImageDirectory + '\\PC-SW\\images\\CenaSumo.png', size=(12, 2), pad=(10, 50), button_text='Push Object', font='Impact'),
+            sg.Button(image_filename=ImageDirectory + '\\PC-SW\\images\\ZhongXina.png', size=(12, 2), pad=(10, 50), button_text='Controller', font='Impact', key='control')],
 
-              [sg.Button('Frem', size=(12, 2), pad=(10, 10), font='Impact', key='forward')],
+            [sg.Button('Frem', size=(12, 2), pad=(10, 10), font='Impact', key='forward')],
 
-              [sg.Button('Venstre', size=(12, 2), pad=(10, 10), font='Impact', key='left'),
-               sg.Button('Stop', size=(12, 2), pad=(10, 10), font='Impact'),
-               sg.Button('Højre', size=(12, 2), pad=(10, 10), font='Impact', key='right')],
+            [sg.Button('Venstre', size=(12, 2), pad=(10, 10), font='Impact', key='left'),
+            sg.Button('Stop', size=(12, 2), pad=(10, 10), font='Impact'),
+            sg.Button('Højre', size=(12, 2), pad=(10, 10), font='Impact', key='right')],
 
-              [sg.Button('Tilbage', size=(12, 2), pad=(10, 10), font='Impact', key='back')],
+            [sg.Button('Tilbage', size=(12, 2), pad=(10, 10), font='Impact', key='back')],
 
-              [sg.Button('Quit', size=(12, 2), pad=(10, 10), font='Impact'),
-               sg.Button('Update Battery', size=(12, 2), pad=(10, 50), font='Impact')],
+            [sg.Button('Quit', size=(12, 2), pad=(10, 10), font='Impact'),
+            sg.Button('Update Battery', size=(12, 2), pad=(10, 50), font='Impact')],
 
-              [sg.Text('Battery Level: ', key='BATTERY_LEVEL')],
-              [sg.Text('Current Power: ', key='CURRENT_POWER')],
-              [sg.ProgressBar(100, orientation='h', size=(20, 20), key='PROGRESS_BAR')]
-              ]
+            [sg.Text('Battery Level: ', key='BATTERY_LEVEL')],
+            [sg.Text('Current Power: ', key='CURRENT_POWER')],
+            [sg.ProgressBar(100, orientation='h', size=(20, 20), key='PROGRESS_BAR')]
+            ]
 
     # centering the GUI elements
     centering = [[sg.VPush()],

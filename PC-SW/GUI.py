@@ -102,7 +102,7 @@ def GUI():
                         print("convert")
                         batteryLevel = round((currentPower-6.4)/2*100, 2)   # calculating battery power
                         print("update")
-                        UpdateBatteryLevel(window, batteryLevel, currentPower)      # updating GUI with battery info
+                        UpdateBatteryLevel(window, batteryLevel, round(currentPower,2))      # updating GUI with battery info
                     except: pass
     
     window.close()

@@ -47,8 +47,8 @@ def GUI():
 
             [sg.Button(image_filename=ImageDirectory + '\\PC-SW\\images\\CenaBack.png', size=(12, 2), pad=(10, 10), button_text='Tilbage', font='Impact', key='back', button_color=('white', 'black'))],
 
-            [sg.Button(image_filename=ImageDirectory + '\\PC-SW\\images\\CenaSalute.png', size=(12, 2), pad=(10, 50), button_text='Quit', font='Impact', button_color=('white', 'black')),
-            sg.Button(image_filename=ImageDirectory + '\\PC-SW\\images\\BinChillin.png', size=(12, 2), pad=(10, 50), button_text='Update Battery', font='Impact', button_color=('white', 'black'))],
+            [sg.Button(image_filename=ImageDirectory + '\\PC-SW\\images\\CenaSalute.png', size=(12, 2), pad=(10, 40), button_text='Quit', font='Impact', button_color=('white', 'black')),
+            sg.Button(image_filename=ImageDirectory + '\\PC-SW\\images\\BinChillin.png', size=(12, 2), pad=(10, 40), button_text='Update Battery', font='Impact', button_color=('white', 'black'))],
 
             [sg.Text('Battery Level: ', key='BATTERY_LEVEL')],
             [sg.Text('Current Power: ', key='CURRENT_POWER')],
@@ -61,7 +61,7 @@ def GUI():
                  [sg.VPush()]]
 
     # Creating GUI window
-    window = sg.Window('Window Title', centering, size=(1100, 700), finalize=True)
+    window = sg.Window('Window Title', centering, size=(1200, 850), finalize=True)
 
     # retrieving button elements from window
     left = window['left']

@@ -62,18 +62,26 @@ def followwall():
                 print("bump")
             #it has met a wall
             else:
+                count = 0
                 while dis < 50 and pob.readbutton() != 1:
                     # Adjusts the right motor speed based on distance and stops
-                    if dis > 40:
+                    if dis > 30:
                         leftspeed = 0
                         rightspeed = 30
                         ms.VariableSpeed(leftspeed,rightspeed)
                         dis = RS.measureDistance()
                     else:
-                        leftspeed = -25
-                        rightspeed = 25
-                        ms.VariableSpeed(leftspeed,rightspeed)
-                        dis = RS.measureDistance()
+                        if count == 0:
+                            leftspeed = -30
+                            rightspeed = -30
+                            ms.VariableSpeed(leftspeed,rightspeed)
+                            sleep(0.4)
+                            count += 1
+                        else:
+                            leftspeed = -25
+                            rightspeed = 25
+                            ms.VariableSpeed(leftspeed,rightspeed)
+                            dis = RS.measureDistance()
                     print("wall")
                 ms.stop()
         #it broke limit for far away
@@ -87,12 +95,12 @@ def followwall():
             count = 30
             while (dis > 65 or count < 40) and pob.readbutton() != 1:
                 # Adjusts the left motor speed based on distance and stops
-                count += 0.5
-                ms.VariableSpeed(count,20)
+                count += 0.2
+                ms.VariableSpeed(count,25)
                 dis = RS.measureDistance()
                 print("cliff")
-                if count < 60:
-                    count = 59
+                if count < 50:
+                    count = 49
             ms.stop()
 # tænder sensoren
 # læser afstanden

@@ -43,8 +43,8 @@ def GUI():
 
             [sg.Button('Tilbage', size=(12, 2), pad=(10, 10), font='Impact', key='back')],
 
-            [sg.Button('Quit', size=(12, 2), pad=(10, 10), font='Impact'),
-            sg.Button('Update Battery', size=(12, 2), pad=(10, 50), font='Impact')],
+            [sg.Button(image_filename=ImageDirectory + '\\PC-SW\\images\\CenaSalute.png', size=(12, 2), pad=(10, 50), button_text='Quit', font='Impact'),
+            sg.Button(image_filename=ImageDirectory + '\\PC-SW\\images\\BinChillin.png', size=(12, 2), pad=(10, 50), button_text='Update Battery', font='Impact')],
 
             [sg.Text('Battery Level: ', key='BATTERY_LEVEL')],
             [sg.Text('Current Power: ', key='CURRENT_POWER')],

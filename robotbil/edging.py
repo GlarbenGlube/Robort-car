@@ -44,22 +44,23 @@
 # led = Pin("LED", Pin.OUT)
 
 # Couldn't get UART channel 1 to work with pins 8 and 9, so after some trial and error used channel 0 and pin 16/17 instead :)
-# uart = UART(0, baudrate=9600, tx=Pin(16), rx=Pin(17))
-
-# uart.init(bits=8, parity=None, tx=Pin(16), rx=Pin(17))
-
-# # uart.write(bytes(0x5A))
-# # uart.write(0x51)
-# # uart.write(0xF6)
-
-# # 0xA5+0x51+0xF6
 
 
-# # data_to_send = bytes([0xA5, 0x51, 0xF6])   
-# data_to_send = bytes([0xA5,0x53,0xF8])
-# sleep_ms(40)
-# data_to_send = bytes([0xA5,0x25,0xCA])
+"""GY53 general mode
 
+        from time import sleep_ms
+
+
+        uart = UART(0, baudrate=9600, tx=Pin(16), rx=Pin(17))
+
+        uart.init(bits=8, parity=None, tx=Pin(16), rx=Pin(17))
+
+        data_to_send = bytes([0xA5, 0x51, 0xF6])   # fast mode
+        data_to_send = bytes([0xA5,0x53,0xF8])     # general mode
+        sleep_ms(40)
+        data_to_send = bytes([0xA5,0x25,0xCA])     # save permanently to sensor
+
+"""
 # # 0xA5+0x25+0xCA
 # # Write the entire bytes object to UART
 # # uart.write(data_to_send)

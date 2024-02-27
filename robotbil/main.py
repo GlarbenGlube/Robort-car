@@ -1,5 +1,5 @@
 import Hardware.motorstyrring as motor
-from kommandoer import SUMO, followWall
+from kommandoer import SUMO, followWall, controller
 from Hardware import ReadSensor as SA
 # from edging import cbt
 import socket
@@ -11,47 +11,7 @@ import gc
 ip = '10.120.0.86'
 port = 5001
 
-def controller(x,y):
-    speed = 60
-    if x != 1: 
-        y = int(y)
-        if x == 5:
-            print("state1 - forward / backward")
-            if y <= 10:
-                motor.stop()
-                print("stop")
-            else:
-                print(y)
-                motor.VariableSpeed(y,y)
 
-        elif x == 4:
-            print("state1 - forward / backward")
-            if y <= 5:
-                speed = 0
-                motor.stop()
-                print("stop")
-            else:
-                print(y)
-                speed = y
-                motor.VariableSpeed(-1*y,-1*y)
-    
-    elif x == 1:
-        x,y = map(int,y.split('_'))
-        if x == -1:
-            if y == -1 or y == 1:
-                motor.VariableSpeed(5, speed*y)
-            if y == 0:
-                motor.VariableSpeed(speed*-1,speed) 
-        elif x == 1:
-            if y == -1 or y == 1:
-                motor.VariableSpeed(speed*y, 5)
-            if y == 0:
-                motor.VariableSpeed(speed,-1*speed) 
-        elif x == 0:
-            if y == -1 or y == 1:
-                motor.VariableSpeed(speed*y, speed*y)
-            if y == 0:
-                motor.stop() 
 
 
 
@@ -89,6 +49,7 @@ while True:
 
     motor.UpdateFreq(75,75)
     motor.UpdatePWM(0.4,0.4)
+    speed = 0
 
     # Main loop
     while True:
@@ -104,7 +65,7 @@ while True:
             else:
                 x, y = map(str, message.split(','))
                 x = int(x)
-                controller(x,y)
+                speed = controller.controller(x,y,speed)
 
         else:
             received_msg = data.decode('utf-8')  # Decode the received bytes to string

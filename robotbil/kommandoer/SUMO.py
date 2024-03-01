@@ -75,11 +75,12 @@ def Sumo():
         sleep(0.05)
         print("return")
         # Adjust motor speed for returning back
-        M.UpdatePWM(0.35,0.35)
+        M.UpdatePWM(0.40,0.40)
         M.back()
-        sleep(0.5)
+        sleep(0.50)
         M.stop()
         # Turn left before restarting the loop
+        M.UpdatePWM(0.30,0.30)
         M.turnleft()
         sleep(0.3)
         M.stop()

@@ -49,7 +49,7 @@ while True:
 
     motor.UpdateFreq(75,75)
     motor.UpdatePWM(0.4,0.4)
-    speed = 0
+    speed = 1
 
     # Main loop
     while True:

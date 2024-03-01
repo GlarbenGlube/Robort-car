@@ -22,4 +22,4 @@ def measureBattery():
 
 # testing the distance measuring function 
 # while True:
-#     print(measureDistance())
+#     print(measureReflection())

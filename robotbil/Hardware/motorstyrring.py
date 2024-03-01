@@ -15,7 +15,7 @@ leftBack = Pin(5, Pin.OUT)
 # variables to control the speed of the motors
 frequency = 1200
 dutycycleR = .72
-offsetR = 0
+offsetR = 0.15
 dutycycleL = .700
 offsetL = 0
 
@@ -66,23 +66,32 @@ def forward():
 #     UpdatePWM(1200,dutyR=dutycycleR)
 
 def VariableSpeed(left, right):
-    if left <0: # left motor update
+    if left < 0: # left motor update
         dutycycleL = (left*-1)/100
         leftForward.value(0)
         leftBack.value(1)
-    else:
+    elif left > 0:
         dutycycleL = left/100
         leftBack.value(0)
         leftForward.value(1)
+    else:
+        dutycycleL = 0
+        leftBack.value(0)
+        leftForward.value(0)
+
         
-    if right <0:
+    if right <0: # right motor update
         dutycycleR = (right*-1)/100
         rightForward.value(0)
         rightBack.value(1)
-    else:
+    elif right > 0:
         dutycycleR = right/100
         rightBack.value(0)
         rightForward.value(1)
+    else:
+        dutycycleR = 0
+        rightBack.value(0)
+        rightForward.value(0)
 
     UpdatePWM(dutycycleL, dutycycleR)
 

@@ -10,7 +10,6 @@ def controller(x,y,speed):
                 print("stop")
             else:
                 speed = y
-                motor.VariableSpeed(speed,speed)
 
         elif x == 4:
             print("state1 backward")
@@ -20,7 +19,6 @@ def controller(x,y,speed):
                 print("stop")
             else:
                 speed = y
-                motor.VariableSpeed(-1*speed,-1*speed)
     
     elif x == 1:
         print("state2 - d-pad")

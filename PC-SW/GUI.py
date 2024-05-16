@@ -14,7 +14,7 @@ sg.theme('DarkGrey15')
 
 # Dictionary mapping GUI button texts to corresponding commands
 # in other words, it translates the button text into a command the program can execute
-commands = {"Follow Wall":"wallfollow","Push Object": "boxpush",
+commands = {"Follow Wall":"wallfollow", "Push Object": "boxpush",
             "controlOn": "controller", "controlOff": "manual",
             "forwardGo": "forward", "forwardStop": "stop",
             "leftGo": "left", "leftStop": "stop",
